@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile_0129.png-ac3053bc5d1868f33bc2d763429324c9.stex"
+path="res://.import/magoAll.png-6176d43e76a76a3e89e85bf2812a6bda.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Tiles/tile_0129.png"
-dest_files=[ "res://.import/tile_0129.png-ac3053bc5d1868f33bc2d763429324c9.stex" ]
+source_file="res://assets/magoAll.png"
+dest_files=[ "res://.import/magoAll.png-6176d43e76a76a3e89e85bf2812a6bda.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

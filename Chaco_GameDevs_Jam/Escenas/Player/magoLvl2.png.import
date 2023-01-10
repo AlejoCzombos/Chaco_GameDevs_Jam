@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile_0129.png-ac3053bc5d1868f33bc2d763429324c9.stex"
+path="res://.import/magoLvl2.png-d47ccf0cdc2828d2dc05abf698a864ce.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Tiles/tile_0129.png"
-dest_files=[ "res://.import/tile_0129.png-ac3053bc5d1868f33bc2d763429324c9.stex" ]
+source_file="res://Escenas/Player/magoLvl2.png"
+dest_files=[ "res://.import/magoLvl2.png-d47ccf0cdc2828d2dc05abf698a864ce.stex" ]
 
 [params]
 

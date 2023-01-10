@@ -3,6 +3,7 @@ extends Area2D
 
 onready var player_objetivo = null
 
+export var vida:float = 5.0
 export var danio:float = 2.0
 export var velocidad:int = 200
 var moviendose:bool = true
@@ -17,6 +18,11 @@ func _process(delta) -> void:
 		movimiento = global_position.direction_to(player_objetivo.global_position)
 	global_position += movimiento * velocidad * delta
 
+func recibir_danio(danioo:float) -> void:
+	if vida > 0:
+		vida -= danioo
+	else:
+		queue_free()
 
 func _on_EnemigoBase_body_entered(body):
 	if body.has_method("recibir_danio"):
@@ -24,5 +30,3 @@ func _on_EnemigoBase_body_entered(body):
 		#borrar test
 		print("hice danio")
 
-func _on_EnemigoBase_body_exited(body):
-	pass # Replace with function body.
