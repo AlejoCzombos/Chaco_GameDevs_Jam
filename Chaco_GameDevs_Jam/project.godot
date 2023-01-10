@@ -33,13 +33,19 @@ _global_script_classes=[ {
 "class": "Proyectil",
 "language": "GDScript",
 "path": "res://Escenas/Player/Proyectil.gd"
+}, {
+"base": "Path2D",
+"class": "Spawn",
+"language": "GDScript",
+"path": "res://Escenas/Spawn/Spawn.gd"
 } ]
 _global_script_class_icons={
 "Cetro": "",
 "EnemigoBase": "",
 "Nivel": "",
 "Player": "",
-"Proyectil": ""
+"Proyectil": "",
+"Spawn": ""
 }
 
 [application]

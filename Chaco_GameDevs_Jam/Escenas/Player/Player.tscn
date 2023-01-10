@@ -131,13 +131,11 @@ collision_mask = 22
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 1, 1 )
 frames = SubResource( 2 )
 animation = "Nivel1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 4.76837e-08, 1.7 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -153,4 +151,3 @@ disabled = true
 
 [node name="Cetro" parent="RotacionCetro" instance=ExtResource( 1 )]
 position = Vector2( 11.8, 0.2 )
-scale = Vector2( 1, 1 )

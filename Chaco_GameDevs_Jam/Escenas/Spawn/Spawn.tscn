@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Escenas/Spawn/Spawn.gd" type="Script" id=1]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 27, -39, 0, 0, 0, 0, 1466, -70, 0, 0, 0, 0, 1480, 367, 0, 0, 0, 0, 1497, 688, 0, 0, 0, 0, 1044, 755, 0, 0, 0, 0, 422, 773, 0, 0, 0, 0, 201, 730, 0, 0, 0, 0, 98, 517, 0, 0, 0, 0, 18, 290, 0, 0, 0, 0, 7, 126, 0, 0, 0, 0, 28, -43 )
+}
+
+[node name="Spawn" type="Path2D"]
+curve = SubResource( 1 )
+script = ExtResource( 1 )
+rango_max = 4303
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2( 27.9999, -42.999 )
+rotation = -1.44693
+offset = 4303.35
+
+[node name="Position2D" type="Position2D" parent="PathFollow2D"]
+
+[node name="TiempoSpawn" type="Timer" parent="."]

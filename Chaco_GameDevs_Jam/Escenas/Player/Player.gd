@@ -26,6 +26,8 @@ func evolucionar() -> void:
 	if nivel_evolucion < 6:
 		var nivel = "Nivel" + str(nivel_evolucion)
 		sprite.play(nivel)
+		if nivel_evolucion == 3 || nivel_evolucion == 5:
+			Eventos.emit_signal("cambio_nivel_proyectil")
 
 func _process(delta) -> void:
 	#MOVIMIENTO----------------------
@@ -64,7 +66,6 @@ func _process(delta) -> void:
 	
 	#Rotacion del Cetro
 	rotacionCetro.look_at(get_global_mouse_position())
-	print(rotacionCetro.rotation_degrees)
 	
 	if rotacionCetro.rotation_degrees > 360:
 		rotacionCetro.rotation_degrees = 0
@@ -73,8 +74,10 @@ func _process(delta) -> void:
 	
 	if rotacionCetro.rotation_degrees > 90 && rotacionCetro.rotation_degrees < 270:
 		$RotacionCetro/Cetro/Sprite.flip_v = true
+		cetro.rotacio_negativa = true
 	else: 
 		$RotacionCetro/Cetro/Sprite.flip_v = false
+		cetro.rotacio_negativa = false
 	
 	#Movimiento Player
 	position += movimiento * delta
