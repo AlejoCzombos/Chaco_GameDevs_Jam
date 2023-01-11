@@ -80,7 +80,8 @@ func _process(delta) -> void:
 		cetro.rotacio_negativa = false
 	
 	#Movimiento Player
-	position += movimiento * delta
+	#position += movimiento * delta
+	move_and_slide(movimiento)
 
 func controladorEstado(nuevoEstado: int) -> void:
 	match nuevoEstado:
