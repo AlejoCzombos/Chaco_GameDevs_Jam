@@ -35,3 +35,13 @@ func cambio_nivel_proyectil() -> void:
 	if nivel_proyectil < 4:
 		var nivel = "Nivel" + str(nivel_proyectil)
 		$AnimatedSprite.play(nivel)
+
+
+
+
+func _on_Proyectil_body_entered(body):
+
+	#Colision con el muro
+	if body is TileMap:
+		queue_free()
+
