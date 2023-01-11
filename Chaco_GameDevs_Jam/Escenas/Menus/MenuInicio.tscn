@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://assets/UI/GUI_Essential_Free_v1.1/2.Paper Collection/Paper Theme/Spritesheet/gui_paper.png" type="Texture" id=1]
+[ext_resource path="res://Escenas/Menus/gui_paper.png" type="Texture" id=1]
 [ext_resource path="res://Escenas/Menus/MenuInicio.gd" type="Script" id=2]
 [ext_resource path="res://Escenas/Menus/gui_paper_animated_button1.png" type="Texture" id=3]
 [ext_resource path="res://Escenas/Menus/background_img_placeholder.jpeg" type="Texture" id=4]
@@ -141,7 +141,7 @@ custom_styles/normal = SubResource( 6 )
 text = "Jugar"
 icon_align = 1
 
-[node name="Continuar" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="Creditos" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
 margin_top = 134.0
 margin_right = 500.0
 margin_bottom = 265.0
@@ -159,7 +159,7 @@ custom_styles/pressed = SubResource( 3 )
 custom_styles/focus = SubResource( 4 )
 custom_styles/disabled = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
-text = "Continuar"
+text = "Creditos"
 icon_align = 1
 
 [node name="Salir" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
@@ -184,5 +184,5 @@ text = "Salir"
 icon_align = 1
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/Jugar" to="." method="_on_Jugar_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/Continuar" to="." method="_on_Continuar_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/Creditos" to="." method="_on_Creditos_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/Salir" to="." method="_on_Salir_pressed"]

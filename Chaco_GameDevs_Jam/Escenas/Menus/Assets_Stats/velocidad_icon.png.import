@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile_0130.png-c93dce4415bf2a2e9a315a8d734a462b.stex"
+path="res://.import/velocidad_icon.png-6a3ee942f88a91e8167d0c62e9245cf6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Tiles/tile_0130.png"
-dest_files=[ "res://.import/tile_0130.png-c93dce4415bf2a2e9a315a8d734a462b.stex" ]
+source_file="res://Escenas/Menus/Assets_Stats/velocidad_icon.png"
+dest_files=[ "res://.import/velocidad_icon.png-6a3ee942f88a91e8167d0c62e9245cf6.stex" ]
 
 [params]
 

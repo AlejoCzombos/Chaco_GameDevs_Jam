@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gui_paper.png-8a66788a388d55b8517908ac227e724a.stex"
+path="res://.import/brown_inlay.png-e31e2f1f270517358f78f19dad974478.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/GUI_Essential_Free_v1.1/2.Paper Collection/Paper Theme/Spritesheet/gui_paper.png"
-dest_files=[ "res://.import/gui_paper.png-8a66788a388d55b8517908ac227e724a.stex" ]
+source_file="res://Escenas/Menus/brown_inlay.png"
+dest_files=[ "res://.import/brown_inlay.png-e31e2f1f270517358f78f19dad974478.stex" ]
 
 [params]
 

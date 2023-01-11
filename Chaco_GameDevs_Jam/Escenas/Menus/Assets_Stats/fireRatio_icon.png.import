@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile_0130.png-c93dce4415bf2a2e9a315a8d734a462b.stex"
+path="res://.import/fireRatio_icon.png-a4e66cfa6a078a38a99cb2daeab46847.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Tiles/tile_0130.png"
-dest_files=[ "res://.import/tile_0130.png-c93dce4415bf2a2e9a315a8d734a462b.stex" ]
+source_file="res://Escenas/Menus/Assets_Stats/fireRatio_icon.png"
+dest_files=[ "res://.import/fireRatio_icon.png-a4e66cfa6a078a38a99cb2daeab46847.stex" ]
 
 [params]
 
