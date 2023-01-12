@@ -1,6 +1,5 @@
 extends Control
 
-
 onready var mago1 = preload("res://Escenas/Player/magoLvl1.png") 
 onready var mago2 = preload("res://Escenas/Player/magoLvl2.png")
 onready var mago3 = preload("res://Escenas/Player/magoLvl3.png")
@@ -21,18 +20,11 @@ onready var stats_velocidad = $Paper/HBoxContainer/Stats/Velocidad
 
 export var menu_princiipal = "res://Escenas/Menus/MenuInicio.tscn"
 
-
-
-
 func _ready(): 
+	visible = false
 	actualizarStats()
 	actualizarImgNivelMago()
-	
-	
-	
-	
-	
-	
+
 func actualizarStats():
 	## Esto es para actualizar los stats al poner pausa
 	## Hay que ponerle las stats correctas
@@ -43,14 +35,17 @@ func actualizarStats():
 
 func actualizarImgNivelMago():
 	textura_mago.texture = mago3
-	
-	
-	
 
 func _on_MenuPrincipal_pressed():
+	# warning-ignore:return_value_discarded
 	get_tree().change_scene(menu_princiipal)
-
+	get_tree().paused = false
 
 func _on_Continuar_pressed():
-	if get_tree().paused:
-		get_tree().paused = false
+	get_tree().paused = false
+	visible = false
+
+func _input(event):
+	if event.is_action_pressed("Pausa"):
+		visible = !visible
+		get_tree().paused = !get_tree().paused

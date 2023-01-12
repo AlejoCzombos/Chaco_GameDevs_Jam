@@ -12,5 +12,11 @@ position = Vector2( 619, 342 )
 
 [node name="Spawn" parent="." instance=ExtResource( 4 )]
 
+[node name="ZonaSpawn" parent="Spawn/Oleada" index="0"]
+margin_left = -338.0
+margin_top = -192.0
+margin_right = 1593.0
+margin_bottom = 894.0
+
 [editable path="Spawn"]
 [editable path="Spawn/Oleada"]

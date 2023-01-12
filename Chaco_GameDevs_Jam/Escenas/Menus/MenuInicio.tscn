@@ -120,10 +120,11 @@ grow_horizontal = 2
 rect_min_size = Vector2( 500, 400 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
+custom_constants/separation = 20
 
 [node name="Jugar" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
 margin_right = 500.0
-margin_bottom = 130.0
+margin_bottom = 120.0
 rect_min_size = Vector2( 250, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -142,9 +143,9 @@ text = "Jugar"
 icon_align = 1
 
 [node name="Creditos" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
-margin_top = 134.0
+margin_top = 140.0
 margin_right = 500.0
-margin_bottom = 265.0
+margin_bottom = 260.0
 rect_min_size = Vector2( 250, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -163,7 +164,7 @@ text = "Creditos"
 icon_align = 1
 
 [node name="Salir" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
-margin_top = 269.0
+margin_top = 280.0
 margin_right = 500.0
 margin_bottom = 400.0
 rect_min_size = Vector2( 250, 50 )
