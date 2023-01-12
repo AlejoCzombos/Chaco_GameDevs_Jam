@@ -1,34 +1,38 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Escenas/Proyectiles/Proyectil.gd" type="Script" id=1]
-[ext_resource path="res://Recursos/Tiles/tile_0063.png" type="Texture" id=2]
-[ext_resource path="res://Recursos/Tiles/tile_0084.png" type="Texture" id=3]
-[ext_resource path="res://Recursos/Tiles/tile_0118.png" type="Texture" id=4]
+[ext_resource path="res://Escenas/Proyectiles/bolas_de_fuego/BolaDeFuego2_0.png" type="Texture" id=2]
+[ext_resource path="res://Escenas/Proyectiles/bolas_de_fuego/BolaDeFuego1_1.png" type="Texture" id=3]
+[ext_resource path="res://Escenas/Proyectiles/bolas_de_fuego/BolaDeFuego1_2.png" type="Texture" id=4]
+[ext_resource path="res://Escenas/Proyectiles/bolas_de_fuego/BolaDeFuego2_1.png" type="Texture" id=5]
+[ext_resource path="res://Escenas/Proyectiles/bolas_de_fuego/BolaDeFuego2_2.png" type="Texture" id=6]
+[ext_resource path="res://Escenas/Proyectiles/bolas_de_fuego/BolaDeFuego4_0.png" type="Texture" id=7]
+[ext_resource path="res://Escenas/Proyectiles/bolas_de_fuego/BolaDeFuego4_2.png" type="Texture" id=8]
+[ext_resource path="res://Escenas/Proyectiles/bolas_de_fuego/BolaDeFuego4_1.png" type="Texture" id=9]
+[ext_resource path="res://Escenas/Proyectiles/bolas_de_fuego/BolaDeFuego1_0.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 6, 6.5 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "Nivel1",
-"speed": 5.0
+"speed": 7.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Nivel2",
-"speed": 5.0
+"speed": 7.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 9 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "Nivel3",
-"speed": 5.0
+"speed": 7.0
 } ]
 
 [node name="Proyectil" type="Area2D"]
-modulate = Color( 1, 0, 0, 1 )
-self_modulate = Color( 1, 0, 0, 1 )
 scale = Vector2( 5, 5 )
 script = ExtResource( 1 )
 
@@ -37,7 +41,6 @@ position = Vector2( 0, 0.5 )
 shape = SubResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-modulate = Color( 1, 0, 0, 1 )
 frames = SubResource( 1 )
 animation = "Nivel1"
 

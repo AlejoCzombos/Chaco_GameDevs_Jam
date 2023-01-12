@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Recursos/Tiles/tile_0108.png" type="Texture" id=1]
 [ext_resource path="res://Escenas/Enemigos/EnemigoBase.gd" type="Script" id=2]
 [ext_resource path="res://Escenas/Enemigos/spawner_mark_2.png" type="Texture" id=3]
+[ext_resource path="res://Escenas/sfx/Danio.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 28.0179
@@ -127,6 +128,12 @@ anims/Spawn = SubResource( 2 )
 [node name="IconoSpawn" type="Sprite" parent="."]
 scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.375
+pitch_scale = 1.19
+bus = "SFX"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_EnemigoBase_body_entered"]

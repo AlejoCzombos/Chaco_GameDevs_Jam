@@ -6,6 +6,7 @@ enum ESTADO {SPAWN, VIVO, MUERTO}
 onready var player_objetivo = null
 onready var tiempoStun:Timer = $TiempoStun
 onready var colisionador:CollisionShape2D = $CollisionShape2D
+onready var hitSFX:AudioStreamPlayer = $Hit
 
 export var vida:float = 5.0
 export var danio:float = 2.0
@@ -43,9 +44,11 @@ func controladorEstado(nuevoEstado: int) -> void:
 
 func recibir_danio(danioo:float) -> void:
 	if estadoActual == ESTADO.VIVO:
+		hitSFX.play()
 		if vida > 0:
 			vida -= danioo
 		else:
+			yield(get_tree().create_timer(0.06), "timeout")
 			controladorEstado(ESTADO.MUERTO)
 
 func _on_EnemigoBase_body_entered(body):
@@ -55,7 +58,7 @@ func _on_EnemigoBase_body_entered(body):
 		print("hice danio")
 
 func _on_area_entered(area):
-	if area is Proyectil:
+	if area is ProyectilPlayer:
 		stuneado = true
 		movimiento = -movimiento * 4
 		tiempoStun.start()
