@@ -4,7 +4,6 @@ extends Area2D
 var velocidad:Vector2 = Vector2.ZERO
 var danio:float = 2.0
 
-
 func _physics_process(delta: float) -> void :
 	position += velocidad * delta
 
@@ -20,7 +19,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _on_area_entered(area:Area2D)->void:
 	daniar(area)
 
-func daniar(otro_cuerpo: CollisionObject2D) -> void:
+func daniar(otro_cuerpo) -> void:
 	if otro_cuerpo.has_method("recibir_danio"):
 		otro_cuerpo.recibir_danio(danio)
 	queue_free()
@@ -28,8 +27,4 @@ func daniar(otro_cuerpo: CollisionObject2D) -> void:
 func _on_body_entered(body: Node):
 	daniar(body)
 
-func _on_Proyectil_body_entered(body):
-	#Colision con el muro
-	if body is TileMap:
-		queue_free()
 

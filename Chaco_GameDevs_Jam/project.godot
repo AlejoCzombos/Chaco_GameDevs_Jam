@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Escenas/Proyectiles/Cetro.gd"
 }, {
-"base": "Area2D",
+"base": "KinematicBody2D",
 "class": "EnemigoBase",
 "language": "GDScript",
 "path": "res://Escenas/Enemigos/EnemigoBase.gd"
@@ -62,7 +62,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Chaco_GameDevs_Jam"
+config/name="Wizard Crawler"
 run/main_scene="res://Escenas/Niveles/Nivel.tscn"
 config/icon="res://icon.png"
 

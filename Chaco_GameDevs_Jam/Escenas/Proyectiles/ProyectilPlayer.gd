@@ -16,3 +16,25 @@ func cambio_nivel_proyectil() -> void:
 		var nivel = "Nivel" + str(nivel_proyectil)
 		$AnimatedSprite.play(nivel)
 	nivel_proyectil += 1
+
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()
+
+func _on_area_entered(area:Area2D)->void:
+	daniar(area)
+
+func daniar(otro_cuerpo: CollisionObject2D) -> void:
+	if otro_cuerpo.has_method("recibir_danio"):
+		otro_cuerpo.recibir_danio(danio)
+	queue_free()
+
+func _on_body_entered(body):
+	daniar(body)
+
+func _on_Proyectil_body_entered(body):
+	#Colision con el muro
+	if body is TileMap:
+		queue_free()
+
+func _on_ProyectilPlayer_area_entered(area):
+	daniar(area)

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile_0121.png-8a078abcef2137d1f0fba377bd36030b.stex"
+path="res://.import/tile_0121.png-a10c31d3932d85f8949550e396a884c5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Tiles/tile_0121.png"
-dest_files=[ "res://.import/tile_0121.png-8a078abcef2137d1f0fba377bd36030b.stex" ]
+source_file="res://Escenas/Enemigos/tile_0121.png"
+dest_files=[ "res://.import/tile_0121.png-a10c31d3932d85f8949550e396a884c5.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
