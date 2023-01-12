@@ -67,6 +67,8 @@ patch_margin_left = 32
 patch_margin_top = 32
 patch_margin_right = 32
 patch_margin_bottom = 32
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Paper"]
 anchor_right = 1.0

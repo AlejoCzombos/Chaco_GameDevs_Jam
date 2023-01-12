@@ -83,6 +83,8 @@ patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 16
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
 margin_left = 150.0
