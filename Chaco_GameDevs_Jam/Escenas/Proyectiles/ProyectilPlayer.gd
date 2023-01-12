@@ -29,7 +29,10 @@ func daniar(otro_cuerpo: CollisionObject2D) -> void:
 	queue_free()
 
 func _on_body_entered(body):
-	daniar(body)
+	if body is TileMap:
+		queue_free()
+	else:
+		daniar(body)
 
 func _on_Proyectil_body_entered(body):
 	#Colision con el muro
