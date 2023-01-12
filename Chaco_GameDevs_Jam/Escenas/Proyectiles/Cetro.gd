@@ -12,6 +12,7 @@ onready var animaciones:AnimationPlayer = $AnimationPlayer
 onready var esta_enfriado:bool = true
 onready var esta_disparando:bool = false setget set_esta_disparando
 onready var puede_disparar:bool = false setget set_puede_disparar
+onready var disparoSFX:AudioStreamPlayer = $Disparo
 
 var nivel_proyectil:int = 1
 var rotacio_negativa:bool = false
@@ -35,9 +36,10 @@ func disparar() -> void:
 		animaciones.play("DispararInvertido")
 	else:
 		animaciones.play("Disparar")
+	disparoSFX.play()
 	esta_enfriado = false
 	timer_enfriamiento.start()
-	var new_proyectil:Proyectil = proyectil.instance()
+	var new_proyectil:ProyectilPlayer = proyectil.instance()
 	new_proyectil.crear(
 		punto_disparo.global_position,
 		global_rotation,

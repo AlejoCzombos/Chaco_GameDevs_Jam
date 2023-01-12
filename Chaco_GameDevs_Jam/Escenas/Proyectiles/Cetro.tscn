@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Escenas/Proyectiles/Cetro.gd" type="Script" id=1]
 [ext_resource path="res://Recursos/Tiles/tile_0129.png" type="Texture" id=2]
 [ext_resource path="res://Escenas/Proyectiles/ProyectilPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Escenas/sfx/Disparo.wav" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Disparar"
@@ -30,7 +31,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.03, 0.17 ),
 "transitions": PoolRealArray( 0.258816, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( -5, 0 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( -40, 0 ), Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -59,7 +60,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.03, 0.17 ),
 "transitions": PoolRealArray( 0.258816, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( -5, 0 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( -40, 0 ), Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -98,6 +99,7 @@ danio_proyectil = 3.0
 [node name="TimerEnfriamiento" type="Timer" parent="."]
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 5, 5 )
 texture = ExtResource( 2 )
 
 [node name="PosicionDisparo" type="Position2D" parent="."]
@@ -110,5 +112,10 @@ __meta__ = {
 anims/Disparar = SubResource( 1 )
 anims/DispararInvertido = SubResource( 3 )
 anims/RESET = SubResource( 2 )
+
+[node name="Disparo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -17.209
+pitch_scale = 1.8
 
 [connection signal="timeout" from="TimerEnfriamiento" to="." method="_on_TimerEnfriamiento_timeout"]
