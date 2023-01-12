@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Sonido_Game_Over.wav-2b41ddd2e551f257ba01f8d2a0380ef7.sample"
+
+[deps]
+
+source_file="res://Escenas/sfx/Sonido_Game_Over.wav"
+dest_files=[ "res://.import/Sonido_Game_Over.wav-2b41ddd2e551f257ba01f8d2a0380ef7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

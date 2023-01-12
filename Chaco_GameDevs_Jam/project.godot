@@ -14,10 +14,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Escenas/Proyectiles/Cetro.gd"
 }, {
-"base": "Area2D",
+"base": "KinematicBody2D",
 "class": "EnemigoBase",
 "language": "GDScript",
 "path": "res://Escenas/Enemigos/EnemigoBase.gd"
+}, {
+"base": "Control",
+"class": "HUD",
+"language": "GDScript",
+"path": "res://Escenas/HUD/HUD.gd"
 }, {
 "base": "Node2D",
 "class": "Nivel",
@@ -34,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Escenas/Proyectiles/Proyectil.gd"
 }, {
+"base": "Proyectil",
+"class": "ProyectilPlayer",
+"language": "GDScript",
+"path": "res://Escenas/Proyectiles/ProyectilPlayer.gd"
+}, {
 "base": "Node2D",
 "class": "SpawnEnemigos",
 "language": "GDScript",
@@ -42,15 +52,17 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Cetro": "",
 "EnemigoBase": "",
+"HUD": "",
 "Nivel": "",
 "Player": "",
 "Proyectil": "",
+"ProyectilPlayer": "",
 "SpawnEnemigos": ""
 }
 
 [application]
 
-config/name="Chaco_GameDevs_Jam"
+config/name="Wizard Crawler"
 run/main_scene="res://Escenas/Niveles/Nivel.tscn"
 config/icon="res://icon.png"
 

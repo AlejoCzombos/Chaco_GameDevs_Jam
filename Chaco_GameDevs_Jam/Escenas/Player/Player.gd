@@ -29,7 +29,7 @@ func evolucionar() -> void:
 		if nivel_evolucion == 3 || nivel_evolucion == 5:
 			Eventos.emit_signal("cambio_nivel_proyectil")
 
-func _process(delta) -> void:
+func _process(_delta) -> void:
 	#MOVIMIENTO----------------------
 	var movimiento:Vector2 = Vector2.ZERO
 	if Input.is_action_pressed("Derecha"):

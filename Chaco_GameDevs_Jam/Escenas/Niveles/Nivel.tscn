@@ -1,16 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Escenas/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Escenas/Niveles/Nivel.gd" type="Script" id=2]
+[ext_resource path="res://Escenas/Escenario/Escenario_1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Escenas/Spawn/Spawn.tscn" type="PackedScene" id=4]
 
 [node name="Nivel" type="Node2D"]
 script = ExtResource( 2 )
 
+[node name="Escenario 1" parent="." instance=ExtResource( 3 )]
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 619, 342 )
 
 [node name="Spawn" parent="." instance=ExtResource( 4 )]
+
+[node name="ZonaSpawn" parent="Spawn/Oleada" index="0"]
+margin_left = -338.0
+margin_top = -192.0
+margin_right = 1593.0
+margin_bottom = 894.0
 
 [editable path="Spawn"]
 [editable path="Spawn/Oleada"]

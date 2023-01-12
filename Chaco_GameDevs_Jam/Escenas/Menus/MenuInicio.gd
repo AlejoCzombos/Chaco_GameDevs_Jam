@@ -1,31 +1,18 @@
+#MenuInicio.gd
 extends Control
 
-export var escena_juego = 'res://Escenas/Niveles/Nivel.tscn'
-export var creditos = "res://Escenas/Menus/Creditos.tscn"
+## Atributos Export
+export(String, FILE, "*.tscn") var nivel_inicial = ""
+export(String, FILE, "*.tscn") var creditos = ""
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_Jugar_pressed():
+## Señales Internas
+func _on_Jugar_pressed() -> void:
 # warning-ignore:return_value_discarded
-	get_tree().change_scene(escena_juego) 
+	get_tree().change_scene(nivel_inicial) 
 
-
-func _on_Creditos_pressed():
+func _on_Creditos_pressed() -> void:
+# warning-ignore:return_value_discarded
 	get_tree().change_scene(creditos)
-	
 
-func _on_Salir_pressed():
+func _on_Salir_pressed() -> void:
 	get_tree().quit()
-
-
