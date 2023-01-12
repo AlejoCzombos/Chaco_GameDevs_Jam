@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Escenas/Player/Cetro.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Escenas/Proyectiles/Cetro.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Escenas/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Escenas/Player/magoLvl4.png" type="Texture" id=3]
 [ext_resource path="res://Escenas/Player/magoLvl3.png" type="Texture" id=4]
@@ -144,6 +144,7 @@ anims/Idle = SubResource( 4 )
 anims/RESET = SubResource( 5 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+current = true
 
 [node name="RotacionCetro" type="CollisionShape2D" parent="."]
 shape = SubResource( 6 )

@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Cetro",
 "language": "GDScript",
-"path": "res://Escenas/Player/Cetro.gd"
+"path": "res://Escenas/Proyectiles/Cetro.gd"
 }, {
 "base": "Area2D",
 "class": "EnemigoBase",
 "language": "GDScript",
-"path": "res://Escenas/Player/EnemigoBase.gd"
+"path": "res://Escenas/Enemigos/EnemigoBase.gd"
 }, {
 "base": "Node2D",
 "class": "Nivel",
@@ -32,12 +32,12 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Proyectil",
 "language": "GDScript",
-"path": "res://Escenas/Player/Proyectil.gd"
+"path": "res://Escenas/Proyectiles/Proyectil.gd"
 }, {
-"base": "Path2D",
-"class": "Spawn",
+"base": "Node2D",
+"class": "SpawnEnemigos",
 "language": "GDScript",
-"path": "res://Escenas/Spawn/Spawn.gd"
+"path": "res://Escenas/Spawn/SpawnEnemigos.gd"
 } ]
 _global_script_class_icons={
 "Cetro": "",
@@ -45,7 +45,7 @@ _global_script_class_icons={
 "Nivel": "",
 "Player": "",
 "Proyectil": "",
-"Spawn": ""
+"SpawnEnemigos": ""
 }
 
 [application]

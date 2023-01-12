@@ -1,6 +1,6 @@
 extends Node
 
 signal disparo(proyectil)
-signal instanciarEnemigo()
+signal instanciar_enemigo(enemigo)
 
 signal cambio_nivel_proyectil()

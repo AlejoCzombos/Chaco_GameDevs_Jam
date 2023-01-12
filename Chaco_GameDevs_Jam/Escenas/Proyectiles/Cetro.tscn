@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Recursos/Tiles/tile_0129.png" type="Texture" id=1]
-[ext_resource path="res://Escenas/Player/Cetro.gd" type="Script" id=2]
-[ext_resource path="res://Escenas/Player/ProyectilPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Escenas/Proyectiles/Cetro.gd" type="Script" id=1]
+[ext_resource path="res://Recursos/Tiles/tile_0129.png" type="Texture" id=2]
+[ext_resource path="res://Escenas/Proyectiles/ProyectilPlayer.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Disparar"
@@ -90,7 +90,7 @@ tracks/1/keys = {
 }
 
 [node name="Cetro" type="Node2D"]
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 proyectil = ExtResource( 3 )
 cadencia_disparo = 0.6
 danio_proyectil = 3.0
@@ -98,7 +98,7 @@ danio_proyectil = 3.0
 [node name="TimerEnfriamiento" type="Timer" parent="."]
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 [node name="PosicionDisparo" type="Position2D" parent="."]
 position = Vector2( -5, 0 )
