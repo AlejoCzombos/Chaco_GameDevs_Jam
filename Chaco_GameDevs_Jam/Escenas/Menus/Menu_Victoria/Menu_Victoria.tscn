@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Escenas/Menus/Toriko.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Escenas/Menus/Menu_Victoria/Menu_Victoria.gd" type="Script" id=2]
+[ext_resource path="res://Escenas/Menus/background_img_placeholder.jpeg" type="Texture" id=3]
+[ext_resource path="res://Escenas/Menus/ButonBase.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=3]
+size = 80
+outline_size = 12
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFontData" id=7]
+font_path = "res://Escenas/Menus/Monsters Attack! 1937.TTF"
+
+[sub_resource type="DynamicFont" id=8]
+resource_local_to_scene = true
+size = 50
+outline_size = 8
+outline_color = Color( 0.705882, 0.333333, 0.176471, 1 )
+extra_spacing_top = -15
+font_data = SubResource( 7 )
+
+[node name="Menu_Victoria" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+menu_principal = "res://Escenas/Menus/MenuInicio.tscn"
+creditos = "res://Escenas/Menus/Creditos.tscn"
+
+[node name="Fondo" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Titulo" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -335.0
+margin_right = 335.0
+margin_bottom = 450.0
+custom_fonts/font = SubResource( 3 )
+text = "!!!GANASTE!!!"
+align = 1
+valign = 1
+
+[node name="Texto" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -650.0
+margin_top = -318.0
+margin_right = 635.0
+margin_bottom = 132.0
+custom_fonts/font = SubResource( 3 )
+text = "Lograste Superar Todas las Pruebas y
+Te Coronaste como el Hechicero Supremo
+!!!Felicitaciones Viajero!!!
+"
+align = 1
+valign = 1
+
+[node name="Menu_Principal" parent="." instance=ExtResource( 4 )]
+margin_left = 706.0
+margin_top = 550.0
+margin_right = 1206.0
+margin_bottom = 681.0
+custom_fonts/font = SubResource( 8 )
+text = "Menu Principal"
+
+[node name="Creditos" parent="." instance=ExtResource( 4 )]
+margin_left = 706.0
+margin_top = 700.0
+margin_right = 1206.0
+margin_bottom = 831.0
+custom_fonts/font = SubResource( 8 )
+
+[node name="Salir" parent="." instance=ExtResource( 4 )]
+margin_left = 706.0
+margin_top = 850.0
+margin_right = 1206.0
+margin_bottom = 981.0
+custom_fonts/font = SubResource( 8 )
+text = "Salir"
+
+[connection signal="pressed" from="Menu_Principal" to="." method="_on_Menu_Principal_pressed"]
+[connection signal="pressed" from="Creditos" to="." method="_on_Creditos_pressed"]
+[connection signal="pressed" from="Salir" to="." method="_on_Salir_pressed"]

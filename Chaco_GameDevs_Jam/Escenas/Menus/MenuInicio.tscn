@@ -50,6 +50,8 @@ margin_top = 1.43197
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
+nivel_inicial = "res://Escenas/Niveles/Nivel.tscn"
+creditos = "res://Escenas/Menus/Creditos.tscn"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 self_modulate = Color( 0.580392, 0.580392, 0.580392, 1 )
