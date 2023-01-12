@@ -1,0 +1,31 @@
+extends Control
+
+export var escena_juego = 'res://Escenas/Niveles/Nivel.tscn'
+export var creditos = "res://Escenas/Menus/Creditos.tscn"
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
+
+
+# Called when the node enters the scene tree for the first time.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+
+func _on_Jugar_pressed():
+# warning-ignore:return_value_discarded
+	get_tree().change_scene(escena_juego) 
+
+
+func _on_Creditos_pressed():
+	get_tree().change_scene(creditos)
+	
+
+func _on_Salir_pressed():
+	get_tree().quit()
+
+
