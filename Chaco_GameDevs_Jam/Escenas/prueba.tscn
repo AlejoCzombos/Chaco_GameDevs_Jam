@@ -4,7 +4,7 @@
 [ext_resource path="res://Escenas/Escenario/Escenario1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Escenas/prueba.gd" type="Script" id=3]
 
-[node name="Nivel" type="Node2D"]
+[node name="Nivel2" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
