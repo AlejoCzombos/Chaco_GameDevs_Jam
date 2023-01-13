@@ -7,7 +7,7 @@
 [ext_resource path="res://Escenas/sfx/Enemigos.wav" type="AudioStream" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 21.0238
+radius = 35.0143
 
 [sub_resource type="Animation" id=4]
 resource_name = "Correr"
@@ -76,6 +76,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Hitbox:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Spawn"
@@ -142,7 +154,7 @@ tracks/4/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=5]
-radius = 31.0
+radius = 59.0
 
 [node name="EnemigoBase" type="KinematicBody2D"]
 collision_layer = 2
@@ -187,7 +199,6 @@ bus = "SFX"
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource( 5 )

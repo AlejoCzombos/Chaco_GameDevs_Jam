@@ -3,8 +3,8 @@ extends Node2D
 
 export var proyectil:PackedScene = null
 export var cadencia_disparo: float = 0.1
-export var velocidad_proyectil: int = 1000
-export var danio_proyectil: float = 1
+export var velocidad_proyectil: int = 300
+export var danio_proyectil: float = 2
 
 onready var punto_disparo:Position2D = $PosicionDisparo
 onready var timer_enfriamiento: Timer = $TimerEnfriamiento

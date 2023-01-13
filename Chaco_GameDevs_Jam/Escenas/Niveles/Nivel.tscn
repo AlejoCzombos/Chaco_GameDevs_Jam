@@ -21,5 +21,13 @@ margin_top = -192.0
 margin_right = 1593.0
 margin_bottom = 894.0
 
+[node name="Oleada2" parent="Spawn" index="1"]
+enemigos_totales = 0
+
+[node name="Oleada3" parent="Spawn" index="2"]
+enemigos_totales = 0
+
 [editable path="Spawn"]
 [editable path="Spawn/Oleada"]
+[editable path="Spawn/Oleada2"]
+[editable path="Spawn/Oleada3"]

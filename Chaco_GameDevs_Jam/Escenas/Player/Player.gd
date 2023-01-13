@@ -102,10 +102,10 @@ func controladorEstado(nuevoEstado: int) -> void:
 	estadoActual = nuevoEstado
 
 func recibir_danio(danio:float) -> void:
+	if danio > vida:
+		#Borrar test
+		get_tree().reload_current_scene()
 	if vida > 0:
 		vida -= danio
 		#Borrar test
 		print(vida)
-	else:
-		#Borrar test
-		get_tree().reload_current_scene()
