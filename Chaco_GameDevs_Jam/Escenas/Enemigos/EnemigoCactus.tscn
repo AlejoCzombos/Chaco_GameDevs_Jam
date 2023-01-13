@@ -1,7 +1,31 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Escenas/Enemigos/EnemigoBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Escenas/Enemigos/EnemigoCactus.gd" type="Script" id=2]
 
+[sub_resource type="CircleShape2D" id=1]
+radius = 377.107
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 583.008
+
 [node name="EnemigoCactus" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+velocidad = 50
+
+[node name="AreaPersecusion" type="Area2D" parent="." index="8"]
+visible = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPersecusion" index="0"]
+shape = SubResource( 1 )
+
+[node name="AreaSalirPersecusion" type="Area2D" parent="." index="9"]
+visible = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaSalirPersecusion" index="0"]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="AreaPersecusion" to="." method="_on_AreaPersecusion_body_entered"]
+[connection signal="body_exited" from="AreaSalirPersecusion" to="." method="_on_AreaSalirPersecusion_body_exited"]

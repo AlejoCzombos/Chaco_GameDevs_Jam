@@ -8,6 +8,7 @@ autostart = true
 script = ExtResource( 1 )
 tiempo_entre_enemigos = Vector2( 4, 3 )
 enemigo = ExtResource( 2 )
+enemigos_totales = 4
 
 [node name="ZonaSpawn" type="ReferenceRect" parent="."]
 margin_right = 1931.0
