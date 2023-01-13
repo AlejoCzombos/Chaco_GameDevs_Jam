@@ -63,29 +63,46 @@ Te Coronaste como el Hechicero Supremo
 align = 1
 valign = 1
 
-[node name="Menu_Principal" parent="." instance=ExtResource( 4 )]
-margin_left = 706.0
-margin_top = 550.0
-margin_right = 1206.0
-margin_bottom = 681.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -332.0
+margin_top = 10.0
+margin_right = 332.0
+margin_bottom = 437.0
+
+[node name="Menu_Principal" parent="VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 0.0
+margin_right = 664.0
+margin_bottom = 134.0
 custom_fonts/font = SubResource( 8 )
 text = "Menu Principal"
 
-[node name="Creditos" parent="." instance=ExtResource( 4 )]
-margin_left = 706.0
-margin_top = 700.0
-margin_right = 1206.0
-margin_bottom = 831.0
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 138.0
+margin_right = 664.0
+margin_bottom = 142.0
+
+[node name="Creditos" parent="VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 146.0
+margin_right = 664.0
+margin_bottom = 280.0
 custom_fonts/font = SubResource( 8 )
 
-[node name="Salir" parent="." instance=ExtResource( 4 )]
-margin_left = 706.0
-margin_top = 850.0
-margin_right = 1206.0
-margin_bottom = 981.0
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+margin_top = 284.0
+margin_right = 664.0
+margin_bottom = 288.0
+
+[node name="Salir" parent="VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 292.0
+margin_right = 664.0
+margin_bottom = 427.0
 custom_fonts/font = SubResource( 8 )
 text = "Salir"
 
-[connection signal="pressed" from="Menu_Principal" to="." method="_on_Menu_Principal_pressed"]
-[connection signal="pressed" from="Creditos" to="." method="_on_Creditos_pressed"]
-[connection signal="pressed" from="Salir" to="." method="_on_Salir_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menu_Principal" to="." method="_on_Menu_Principal_pressed"]
+[connection signal="pressed" from="VBoxContainer/Creditos" to="." method="_on_Creditos_pressed"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_Salir_pressed"]
