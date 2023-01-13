@@ -14,10 +14,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Escenas/Proyectiles/Cetro.gd"
 }, {
+"base": "EnemigoBase",
+"class": "EnemigoArana",
+"language": "GDScript",
+"path": "res://Escenas/Enemigos/EnemigoArana.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "EnemigoBase",
 "language": "GDScript",
 "path": "res://Escenas/Enemigos/EnemigoBase.gd"
+}, {
+"base": "EnemigoBase",
+"class": "EnemigoCactus",
+"language": "GDScript",
+"path": "res://Escenas/Enemigos/EnemigoCactus.gd"
 }, {
 "base": "Control",
 "class": "HUD",
@@ -40,6 +50,11 @@ _global_script_classes=[ {
 "path": "res://Escenas/Proyectiles/Proyectil.gd"
 }, {
 "base": "Proyectil",
+"class": "ProyectilEnemigo",
+"language": "GDScript",
+"path": "res://Escenas/Proyectiles/ProyectilEnemigo.gd"
+}, {
+"base": "Proyectil",
 "class": "ProyectilPlayer",
 "language": "GDScript",
 "path": "res://Escenas/Proyectiles/ProyectilPlayer.gd"
@@ -51,11 +66,14 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Cetro": "",
+"EnemigoArana": "",
 "EnemigoBase": "",
+"EnemigoCactus": "",
 "HUD": "",
 "Nivel": "",
 "Player": "",
 "Proyectil": "",
+"ProyectilEnemigo": "",
 "ProyectilPlayer": "",
 "SpawnEnemigos": ""
 }
@@ -77,6 +95,7 @@ window/size/width=1920
 window/size/height=1080
 window/size/test_width=1280
 window/size/test_height=720
+mouse_cursor/custom_image="res://Escenas/Player/tile_0060.png"
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 

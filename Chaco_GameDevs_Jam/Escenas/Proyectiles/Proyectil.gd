@@ -26,5 +26,3 @@ func daniar(otro_cuerpo) -> void:
 
 func _on_body_entered(body: Node):
 	daniar(body)
-
-

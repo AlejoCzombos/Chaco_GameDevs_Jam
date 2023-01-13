@@ -13,13 +13,12 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2( 3.8, -0.4 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" parent="." index="1"]
 scale = Vector2( 1.5, 1.5 )
 animation = "Nivel3"
-frame = 1
+frame = 2
 playing = true
 
 [node name="VisibilityNotifier2D" parent="." index="2"]

@@ -94,7 +94,7 @@ tracks/1/keys = {
 script = ExtResource( 1 )
 proyectil = ExtResource( 3 )
 cadencia_disparo = 0.6
-danio_proyectil = 3.0
+velocidad_proyectil = 1000
 
 [node name="TimerEnfriamiento" type="Timer" parent="."]
 

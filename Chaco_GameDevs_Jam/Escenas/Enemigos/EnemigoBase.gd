@@ -26,7 +26,7 @@ func _process(delta) -> void:
 		movimiento = global_position.direction_to(player_objetivo.global_position)
 	elif stuneado:
 		movimiento = lerp(movimiento, Vector2(0,0), 0.3)
-	move_and_collide(movimiento * velocidad * delta)
+	move_and_slide(movimiento * (velocidad * 100) * delta)
 
 func controladorEstado(nuevoEstado: int) -> void:
 	match nuevoEstado:
@@ -53,11 +53,15 @@ func recibir_danio(danioo:float) -> void:
 		movimiento = -movimiento * 4
 		tiempoStun.start()
 		modulate = Color.red
-		if vida > 0:
-			vida -= danioo
-		else:
+		if danioo >= vida:
+			disparar()
 			yield(get_tree().create_timer(0.06), "timeout")
 			controladorEstado(ESTADO.MUERTO)
+		if vida > 0:
+			vida -= danioo
+
+func disparar() -> void:
+	pass
 
 func crear(pos:Vector2) -> void:
 	position = pos
