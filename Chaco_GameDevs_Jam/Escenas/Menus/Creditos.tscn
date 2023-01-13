@@ -21,6 +21,7 @@ region_rect = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="StyleBoxTexture" id=5]
 texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 4 )
@@ -202,7 +203,7 @@ margin_bottom = 534.0
 margin_right = 547.0
 margin_bottom = 41.0
 custom_fonts/font = ExtResource( 3 )
-text = " Nicolas Nuñes"
+text = " Nicolas Nuñez"
 align = 2
 
 [node name="Label2" type="Label" parent="Paper/VBoxContainer/HBoxContainer/VBoxContainer2"]

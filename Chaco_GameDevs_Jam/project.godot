@@ -62,7 +62,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Wizard Crawler"
+config/name="Chaco_GameDevs_Jam"
 run/main_scene="res://Escenas/Niveles/Nivel.tscn"
 config/icon="res://icon.png"
 
