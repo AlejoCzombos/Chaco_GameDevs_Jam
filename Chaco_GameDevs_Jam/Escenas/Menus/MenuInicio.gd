@@ -5,6 +5,13 @@ extends Control
 export(String, FILE, "*.tscn") var nivel_inicial = ""
 export(String, FILE, "*.tscn") var creditos = ""
 
+## Atributos Onready
+onready var musica: AudioStreamPlayer = $MusicaMenu
+
+## Metodos
+func _ready() -> void:
+	musica.play()
+
 ## Señales Internas
 func _on_Jugar_pressed() -> void:
 # warning-ignore:return_value_discarded
