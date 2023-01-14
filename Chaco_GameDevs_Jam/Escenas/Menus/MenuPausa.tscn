@@ -46,7 +46,7 @@ script = ExtResource( 6 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color( 0.74902, 0.2, 0.2, 0.352941 )
+color = Color( 0.2, 0.2, 0.2, 0.352941 )
 
 [node name="Paper" type="NinePatchRect" parent="."]
 anchor_left = 0.5

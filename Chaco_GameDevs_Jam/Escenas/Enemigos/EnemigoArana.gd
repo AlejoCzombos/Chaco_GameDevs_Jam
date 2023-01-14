@@ -11,13 +11,13 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		$AnimationPlayer.play("Correr Araña")
 
 func disparar() -> void:
-	for i in range(2):
+	for _i in range(rand_range(1,3)):
 		var new_proyectil:ProyectilEnemigo = proyectil.instance()
 		new_proyectil.crear(
 			global_position,
 			rand_range(0,360),
 			velocidad_proyectil,
 			danio_proyectil, 
-			2
+			1
 			)
 		Eventos.emit_signal("disparo_enemigo", new_proyectil)

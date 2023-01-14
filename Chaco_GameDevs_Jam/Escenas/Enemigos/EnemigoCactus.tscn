@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Escenas/Enemigos/EnemigoBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Escenas/Enemigos/EnemigoCactus.gd" type="Script" id=2]
+[ext_resource path="res://Escenas/Proyectiles/DisparoEnemigo.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 377.107
@@ -12,6 +13,9 @@ radius = 583.008
 [node name="EnemigoCactus" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 velocidad = 50
+
+[node name="Hitbox" parent="." index="7"]
+visible = false
 
 [node name="AreaPersecusion" type="Area2D" parent="." index="8"]
 visible = false
@@ -26,6 +30,8 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaSalirPersecusion" index="0"]
 shape = SubResource( 2 )
+
+[node name="DisparoEnemigo" parent="." index="10" instance=ExtResource( 3 )]
 
 [connection signal="body_entered" from="AreaPersecusion" to="." method="_on_AreaPersecusion_body_entered"]
 [connection signal="body_exited" from="AreaSalirPersecusion" to="." method="_on_AreaSalirPersecusion_body_exited"]

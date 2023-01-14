@@ -24,7 +24,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Escenas/Enemigos/EnemigoBase.gd"
 }, {
-<<<<<<< HEAD
 "base": "EnemigoBase",
 "class": "EnemigoCactus",
 "language": "GDScript",
@@ -35,8 +34,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Escenas/HUD/HUD.gd"
 }, {
-=======
->>>>>>> 8488d2c (HUB terminado, listo para implementar)
 "base": "Node2D",
 "class": "Nivel",
 "language": "GDScript",
@@ -71,11 +68,8 @@ _global_script_class_icons={
 "Cetro": "",
 "EnemigoArana": "",
 "EnemigoBase": "",
-<<<<<<< HEAD
 "EnemigoCactus": "",
 "HUD": "",
-=======
->>>>>>> 8488d2c (HUB terminado, listo para implementar)
 "Nivel": "",
 "Player": "",
 "Proyectil": "",
