@@ -28,6 +28,9 @@ func _ready() -> void:
 	enemigos.append(enemigoRata)
 	enemigos.append(enemigoMurcielago)
 	enemigos.append(enemigoFantasma)
+	enemigos.append(enemigoArana)
+	enemigos.append(enemigoCactus)
+	enemigos.append(enemigoCiclope)
 
 func _on_Oleada_timeout() -> void:
 	if enemigos_totales_1 > 0:
@@ -54,10 +57,10 @@ func configurarOleada(tiempo_enemigos_1:Vector2, enemigo1:int, enemigos_tot_1:in
 	$Enemigo2.start()
 
 func _on_Enemigo2_timeout():
-	if enemigo_2 >= 0 && enemigo_2 <= 5:
+	if enemigos_totales_2 > 0:
 		self.wait_time = random.randf_range(tiempo_entre_enemigos_2.y, tiempo_entre_enemigos_2.x)
 		var posicion = Vector2(randf() * zona_spawn.rect_size.x, randf() * zona_spawn.rect_size.y)
-		if enemigo_2 != 0:
+		if enemigo_2 >= 0 && enemigo_2 <= 5:
 			var enemigo = enemigos[enemigo_2]
 			var new_enemigo = enemigo.instance()
 			new_enemigo.crear(posicion)
