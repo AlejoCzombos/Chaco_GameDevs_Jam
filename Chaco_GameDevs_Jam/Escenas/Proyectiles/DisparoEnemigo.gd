@@ -16,10 +16,8 @@ func _ready() -> void:
 	player_objetivo = DatosJuego.player_actual
 
 func _process(delta):
-	print(esta_disparando)
 	if esta_disparando && esta_enfriado:
 		disparar()
-		print("dispare")
 
 func disparar() -> void:
 	esta_enfriado = false

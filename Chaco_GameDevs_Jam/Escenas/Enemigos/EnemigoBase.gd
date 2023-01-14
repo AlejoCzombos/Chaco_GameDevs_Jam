@@ -38,6 +38,7 @@ func controladorEstado(nuevoEstado: int) -> void:
 			colisionador.set_deferred("disabled", false)
 			colisionadorArea.set_deferred("disabled", false)
 		ESTADO.MUERTO:
+			Eventos.emit_signal("descontar_enemigo")
 			puede_moverse = false
 			colisionador.set_deferred("disabled", true)
 			colisionadorArea.set_deferred("disabled", true)

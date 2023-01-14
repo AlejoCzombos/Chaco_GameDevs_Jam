@@ -1,17 +1,27 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Escenas/Spawn/Oleada.gd" type="Script" id=1]
-[ext_resource path="res://Escenas/Enemigos/EnemigoBase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Escenas/Enemigos/EnemigoArana.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Escenas/Enemigos/EnemigoRata.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Escenas/Enemigos/EnemigoMurciélago.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Escenas/Enemigos/EnemigoFantasma.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Escenas/Enemigos/EnemigoCiclope.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Escenas/Enemigos/EnemigoCactus.tscn" type="PackedScene" id=7]
 
 [node name="Oleada" type="Timer"]
-autostart = true
 script = ExtResource( 1 )
-tiempo_entre_enemigos = Vector2( 4, 3 )
-enemigo = ExtResource( 2 )
-enemigos_totales = 4
+enemigoRata = ExtResource( 3 )
+enemigoMurcielago = ExtResource( 4 )
+enemigoFantasma = ExtResource( 5 )
+enemigoArana = ExtResource( 2 )
+enemigoCactus = ExtResource( 7 )
+enemigoCiclope = ExtResource( 6 )
 
 [node name="ZonaSpawn" type="ReferenceRect" parent="."]
 margin_right = 1931.0
 margin_bottom = 1086.0
 
+[node name="Enemigo2" type="Timer" parent="."]
+
 [connection signal="timeout" from="." to="." method="_on_Oleada_timeout"]
+[connection signal="timeout" from="Enemigo2" to="." method="_on_Enemigo2_timeout"]

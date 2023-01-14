@@ -162,6 +162,7 @@ anims/RESET = SubResource( 5 )
 current = true
 
 [node name="HUD" parent="Camera2D" instance=ExtResource( 9 )]
+visible = false
 
 [node name="RotacionCetro" type="CollisionShape2D" parent="."]
 shape = SubResource( 6 )

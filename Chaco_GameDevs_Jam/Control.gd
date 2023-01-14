@@ -18,7 +18,7 @@ onready var labelRondas = $Rondas.text
 
 
 func _ready():
-	pass # Replace with function body.
+	visible = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
