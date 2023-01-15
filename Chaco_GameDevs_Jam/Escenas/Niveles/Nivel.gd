@@ -21,7 +21,6 @@ func conectar_seniales() -> void:
 # warning-ignore:return_value_discarded
 	Eventos.connect("descontar_enemigo", self, "on_descontar_enemigo")
 
-
 func on_descontar_enemigo() -> void:
 	DatosJuego.cantidad_enemigos -= 1
 	hud.descontar_enemigos()
