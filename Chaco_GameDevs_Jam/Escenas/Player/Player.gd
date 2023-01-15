@@ -104,11 +104,12 @@ func controladorEstado(nuevoEstado: int) -> void:
 	estadoActual = nuevoEstado
 
 func recibir_danio(danio:float) -> void:
-	if danio > vida:
-		#Borrar test
-		get_tree().change_scene("res://Escenas/Menus/MenuGameOver/MenuGameOver.tscn")
 	if vida > 0:
 		vida -= danio
 		Eventos.emit_signal("cambio_vida", vida)
 		#Borrar test
 		print(vida)
+		
+	if danio > vida:
+		#Borrar test
+		get_tree().change_scene("res://Escenas/Menus/MenuGameOver/MenuGameOver.tscn")

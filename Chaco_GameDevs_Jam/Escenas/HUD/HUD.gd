@@ -46,12 +46,14 @@ func descontar_enemigos():
 	barEnemigosRestantes.value = barEnemigosRestantes.value - 1
 
 func set_enemigos_restantes(enemigos):
-	enemigosRestantes.text = str(enemigos)
-	barEnemigosRestantes.value = enemigos
+	enemigosRestantes.set_text(str(enemigos))
+	barEnemigosRestantes.set_value(enemigos)
 
 func set_enemigos_totales(enemigos:int):
-	barEnemigosTotales.value = enemigos
+	print('Se establecieron los nuevos totales')
+	barEnemigosTotales.set_value(enemigos)
 	barEnemigosTotales.set_max(enemigos)
+	enemigosRestantes.set_text(str(enemigos))
 		
 
 func set_ronda(n:int):
