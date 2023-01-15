@@ -1,6 +1,9 @@
 class_name Nivel
 extends Node2D
 
+## Atributos Export
+export var musica_nivel:AudioStream = null
+
 onready var contenedor_enemigos:Node
 onready var hud:HUD = $HUD
 
@@ -10,6 +13,8 @@ func _ready() -> void:
 	contenedor_enemigos = Node.new()
 	contenedor_enemigos.name = "contenedor_enemigos"
 	add_child(contenedor_enemigos)
+	MusicaJuego.set_streams(musica_nivel)
+	MusicaJuego.play_musica_nivel()
 
 func conectar_seniales() -> void:
 # warning-ignore:return_value_discarded
