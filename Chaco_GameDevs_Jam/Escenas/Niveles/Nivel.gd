@@ -3,6 +3,8 @@ extends Node2D
 
 ## Atributos Export
 export var musica_nivel:AudioStream = null
+export(String, FILE, "*.tscn") var proximo_nivel = ""
+export(String, FILE, "*.tscn") var menu_game_over = ""
 
 onready var contenedor_enemigos:Node
 onready var hud:HUD = $HUD
@@ -25,6 +27,15 @@ func conectar_seniales() -> void:
 	Eventos.connect("disparo_enemigo", self, "_on_disparo_enemigo")
 # warning-ignore:return_value_discarded
 	Eventos.connect("descontar_enemigo", self, "on_descontar_enemigo")
+# warning-ignore:return_value_discarded
+	Eventos.connect("game_over", self, "game_over")
+
+func game_over() -> void:
+	MusicaJuego.stop_todo()
+# warning-ignore:standalone_expression
+	DatosJuego.nivel_actual = get_tree().current_scene.filename
+# warning-ignore:return_value_discarded
+	get_tree().change_scene(menu_game_over)
 
 func on_descontar_enemigo() -> void:
 	DatosJuego.cantidad_enemigos -= 1
