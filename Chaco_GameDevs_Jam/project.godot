@@ -39,11 +39,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Escenas/Niveles/Nivel.gd"
 }, {
-"base": "Timer",
-"class": "Oleada",
-"language": "GDScript",
-"path": "res://Escenas/Spawn/Oleada.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -76,7 +71,6 @@ _global_script_class_icons={
 "EnemigoCactus": "",
 "HUD": "",
 "Nivel": "",
-"Oleada": "",
 "Player": "",
 "Proyectil": "",
 "ProyectilEnemigo": "",
