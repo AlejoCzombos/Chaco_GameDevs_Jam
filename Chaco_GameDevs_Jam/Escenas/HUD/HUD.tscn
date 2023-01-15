@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Escenas/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Escenas/Menus/Monsters Attack! 1937.TTF" type="DynamicFontData" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Escenas/HUD/vida_hud.png" type="Texture" id=6]
 [ext_resource path="res://Escenas/HUD/paper_hud.png" type="Texture" id=7]
 [ext_resource path="res://Escenas/Menus/MenuPausa.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Escenas/HUD/CartasDeMejoras.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=4]
 size = 120
@@ -268,15 +269,18 @@ custom_fonts/font = ExtResource( 3 )
 text = "3"
 align = 1
 
-[node name="MenuPausa" parent="." instance=ExtResource( 8 )]
-visible = false
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Danio = SubResource( 5 )
 anims/RESET = SubResource( 6 )
+
+[node name="Mejora" parent="." instance=ExtResource( 9 )]
+
+[node name="MenuPausa" parent="." instance=ExtResource( 8 )]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 color = Color( 0.721569, 0.00392157, 0.00392157, 0.239216 )

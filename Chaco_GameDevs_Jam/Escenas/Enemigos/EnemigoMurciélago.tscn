@@ -75,9 +75,7 @@ tracks/4/keys = {
 
 [node name="EnemigoMurciélago" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-vida = 8.0
-danio = 4.0
-velocidad = 250
+vida = 6.0
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 0, 0 )

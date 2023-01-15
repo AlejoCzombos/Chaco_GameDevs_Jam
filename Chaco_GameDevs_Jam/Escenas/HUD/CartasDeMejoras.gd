@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 onready var cardImg1 = $HBoxContainer/NinePatchRect/VBoxContainer/MarcoImg/ImgCartaMejora
 onready var cardImg2 = $HBoxContainer/NinePatchRect2/VBoxContainer/MarcoImg/ImgCartaMejora
@@ -45,28 +45,23 @@ var numero1:int
 var numero2:int
 
 func _process(delta):
-	if Input.is_action_just_released("Disparar"):
+	if Input.is_action_just_pressed("Disparar"):
 		if carta1_seleccionada:
+			print("carta 1 seleccionada")
 			Eventos.emit_signal("mejoraSeleccionada", numero1)
+			carta1_seleccionada = false
 		elif carta2_seleccionada:
+			print("carta 2 seleccionada")
 			Eventos.emit_signal("mejoraSeleccionada", numero2)
-
-
+			carta2_seleccionada = false
 
 ########### Prueba #############
 func _ready():
-<<<<<<< HEAD
+	self.visible = false
 	numeroRandom.randomize()
 	definir_cartas()
 	# 0 = Daño
 	# 1 = Tario de fuego
-=======
-	randomize()
-	mazoDeMejoras.shuffle()
-	
-	# 0 = Tario de fuego
-	# 1 = Daño
->>>>>>> fff1976ddd95566a3a3b5b283209256a38b6b8fc
 	# 2 = Vida
 	# 3 = Velocidad
 ##  (usar este metodo para setear las cartas)
@@ -107,7 +102,6 @@ func set_cards(tipoCarta1, tipoCarta2):
 	cardImg2.set_texture(imagen)
 	cardDesc2.set_text(descripcion)
 
-<<<<<<< HEAD
 func _on_NinePatchRect2_mouse_entered():
 	carta2_seleccionada = true
 	#tween_In.interpolate_property(carta2, "rect_position", carta2.rect_position,  Vector2(230, -10), 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN)
@@ -131,17 +125,3 @@ func _on_NinePatchRect_mouse_exited():
 #	tween_Out.interpolate_property(carta1, "rect_position", carta1.rect_position,  Vector2(0, 0), 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN)
 #	tween_Out.start()
 	carta1.modulate = Color.white
-=======
-func repartirCartas():
-	
-	if mazoDeMejoras.size() != sacadas + 1:
-		set_cards(mazoDeMejoras[sacadas], mazoDeMejoras[sacadas+1])
-		sacadas += 2
-	else: 
-		sacadas = 0
-		set_cards(mazoDeMejoras[sacadas], mazoDeMejoras[sacadas+1])
-	if not raiz.visible:
-		raiz.visible = not raiz.visible
-		
-	desaparecer.play("Animación_desaparecer")
->>>>>>> fff1976ddd95566a3a3b5b283209256a38b6b8fc

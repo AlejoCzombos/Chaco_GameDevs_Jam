@@ -65,7 +65,9 @@ radius = 41.5271
 
 [node name="EnemigoFantasma" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
-velocidad = 300
+vida = 8.0
+danio = 3.0
+velocidad = 350
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 0, -2.86102e-06 )

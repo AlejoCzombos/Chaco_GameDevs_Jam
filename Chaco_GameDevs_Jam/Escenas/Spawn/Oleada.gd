@@ -38,7 +38,6 @@ func _on_Oleada_timeout() -> void:
 		var posicion = Vector2(randf() * zona_spawn.rect_size.x, randf() * zona_spawn.rect_size.y)
 		if enemigo_1 >= 0 && enemigo_1 <= 5:
 			var enemigo = enemigos[1]
-			print(enemigo)
 			var new_enemigo = enemigo.instance()
 			new_enemigo.crear(posicion)
 			Eventos.emit_signal("instanciar_enemigo", new_enemigo)

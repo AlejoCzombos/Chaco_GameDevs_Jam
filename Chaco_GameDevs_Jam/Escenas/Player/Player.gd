@@ -5,7 +5,7 @@ enum ESTADO {SPAWN, VIVO, INVENCIBLE, MUERTO}
 
 export var velocidad:float = 400.0
 export var vida:float = 10.0
-export var cadencia_disparo:float = 0.6
+export var cadencia_disparo:float = 1
 export var velocidad_proyectil:int = 1000
 export var danio_proyectil:float = 2
 
@@ -23,9 +23,39 @@ func _ready() -> void:
 	DatosJuego.player_actual = self
 	controladorEstado(estadoActual)
 	configurar_cetro()
+	Eventos.connect("mejoraSeleccionada", self, "on_mejoraSeleccionada")
+	$RotacionCetro/Cetro/TimerEnfriamiento.wait_time = cadencia_disparo
+	$RotacionCetro/Cetro.velocidad_proyectil = velocidad_proyectil
 
 func _exit_tree() -> void:
 	DatosJuego.player_actual = null
+
+func on_mejoraSeleccionada(mejora:int) -> void:
+	# 0 = Daño
+	# 1 = Tario de fuego
+	# 2 = Vida
+	# 3 = Velocidad
+	match mejora:
+		0: 
+			danio_proyectil = danio_proyectil * 1.5
+			cetro.danio_proyectil = danio_proyectil
+			print("danio mejorado" + str(danio_proyectil))
+			pass
+		1:
+			cadencia_disparo = cadencia_disparo 
+			$RotacionCetro/Cetro/TimerEnfriamiento.wait_time = (cadencia_disparo - 0.2)
+			print("cadencia mejorada" + str(cadencia_disparo))
+			pass
+		2:
+			vida = vida * 1.4
+			print("vida mejorada" + str(vida))
+			pass
+		3:
+			velocidad = velocidad + 50
+			print("velocidad mejorada" + str(velocidad))
+			pass
+		_:
+			printerr("Error mejora")
 
 func evolucionar() -> void:
 	if nivel_evolucion < 6:
@@ -113,14 +143,11 @@ func controladorEstado(nuevoEstado: int) -> void:
 	estadoActual = nuevoEstado
 
 func recibir_danio(danio:float) -> void:
-<<<<<<< HEAD
 	DatosJuego.camara_actual.movimientoCamara(4,0.3)
 	Eventos.emit_signal("danio_jugador")
 	if danio > vida:
 		#Borrar test
 		get_tree().change_scene("res://Escenas/Menus/MenuGameOver/MenuGameOver.tscn")
-=======
->>>>>>> fff1976ddd95566a3a3b5b283209256a38b6b8fc
 	if vida > 0:
 		vida -= danio
 		animaciones.play("Danio")
@@ -128,7 +155,3 @@ func recibir_danio(danio:float) -> void:
 		Eventos.emit_signal("cambio_vida", vida)
 		#Borrar test
 		print(vida)
-		
-	if danio > vida:
-		#Borrar test
-		get_tree().change_scene("res://Escenas/Menus/MenuGameOver/MenuGameOver.tscn")

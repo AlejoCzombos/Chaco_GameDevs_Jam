@@ -15,6 +15,8 @@ onready var barEnemigosTotales = $Enemigos/EnemigosContainer/ProgressBar
 ##RONDAS 
 onready var labelRondas = $Rondas
 
+onready var seleccionar_mejora = $Mejora
+
 func _ready():
 	visible = true
 # warning-ignore:return_value_discarded
@@ -25,6 +27,22 @@ func _ready():
 	Eventos.connect("enemigos_totales", self, "on_enemigos_totales")
 # warning-ignore:return_value_discarded
 	Eventos.connect("danio_jugador", self, "danio")
+# warning-ignore:return_value_discarded
+	Eventos.connect("oleada_terminada", self, "on_oleada_terminada")
+# warning-ignore:return_value_discarded
+	Eventos.connect("mejoraSeleccionada", self, "on_mejora_seleccionada")
+
+func on_mejora_seleccionada(_mejora:int) -> void:
+	#TODO: animacion esconder
+	get_tree().paused = false
+	seleccionar_mejora.visible = false
+	Eventos.emit_signal("comenzar_oleada", DatosJuego.oleada_actual)
+	pass
+
+func on_oleada_terminada() -> void:
+	seleccionar_mejora.definir_cartas()
+	seleccionar_mejora.visible = true
+	get_tree().paused = true
 
 func on_cambio_vida(vida:int) -> void:
 	set_vida_actual(vida)
@@ -33,37 +51,29 @@ func on_enemigos_totales(enemigos:int) -> void:
 	set_enemigos_totales(enemigos)
 
 func on_comenzar_oleada(numero_oleada:int) -> void:
+	get_tree().paused = false
 	set_ronda(numero_oleada)
 
 func set_vida_maxima(vidaMaxima):
 	vidaMax.text = str(vidaMaxima)
-	barVidaMax.set_max(vidaMaxima) 
+	barVidaMax.max_value = vidaMaxima 
 
 func set_vida_actual(vidaAct):
 	vidaActual.text = str(vidaAct)
 	barVidaActual.value = vidaAct 
 
 func descontar_enemigos():
-	print("me llamaron")
 	enemigosRestantes.text = str(barEnemigosRestantes.value - 1)
 	barEnemigosRestantes.value = barEnemigosRestantes.value - 1
 
 func set_enemigos_restantes(enemigos):
-	enemigosRestantes.set_text(str(enemigos))
-	barEnemigosRestantes.set_value(enemigos)
+	enemigosRestantes.text = str(enemigos)
+	barEnemigosRestantes.value = enemigos
 
 func set_enemigos_totales(enemigos:int):
-<<<<<<< HEAD
 	barEnemigosTotales.max_value = enemigos
 	enemigosRestantes.text = str(barEnemigosTotales.max_value)
 	barEnemigosTotales.value = barEnemigosTotales.max_value
-=======
-	print('Se establecieron los nuevos totales')
-	barEnemigosTotales.set_value(enemigos)
-	barEnemigosTotales.set_max(enemigos)
-	enemigosRestantes.set_text(str(enemigos))
-		
->>>>>>> fff1976ddd95566a3a3b5b283209256a38b6b8fc
 
 func set_ronda(n:int):
 	labelRondas.text = str(n)

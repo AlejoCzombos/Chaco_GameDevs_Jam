@@ -222,6 +222,9 @@ radius = 62.0081
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 22
 script = ExtResource( 2 )
+velocidad = 200.0
+cadencia_disparo = 1.5
+velocidad_proyectil = 600
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 5, 5 )
