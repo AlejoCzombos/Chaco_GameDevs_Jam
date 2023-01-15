@@ -37,6 +37,7 @@ script = ExtResource( 3 )
 menu_inicio = "res://Escenas/Menus/MenuInicio.tscn"
 
 [node name="Fondo" type="TextureRect" parent="."]
+modulate = Color( 0.482353, 0.482353, 0.482353, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 2 )
