@@ -23,6 +23,8 @@ func _ready():
 	Eventos.connect("comenzar_oleada", self, "on_comenzar_oleada")
 # warning-ignore:return_value_discarded
 	Eventos.connect("enemigos_totales", self, "on_enemigos_totales")
+# warning-ignore:return_value_discarded
+	Eventos.connect("danio_jugador", self, "danio")
 
 func on_cambio_vida(vida:int) -> void:
 	set_vida_actual(vida)
@@ -42,6 +44,7 @@ func set_vida_actual(vidaAct):
 	barVidaActual.value = vidaAct 
 
 func descontar_enemigos():
+	print("me llamaron")
 	enemigosRestantes.text = str(barEnemigosRestantes.value - 1)
 	barEnemigosRestantes.value = barEnemigosRestantes.value - 1
 
@@ -50,7 +53,12 @@ func set_enemigos_restantes(enemigos):
 	barEnemigosRestantes.value = enemigos
 
 func set_enemigos_totales(enemigos:int):
-	barEnemigosTotales.value = enemigos
+	barEnemigosTotales.max_value = enemigos
+	enemigosRestantes.text = str(barEnemigosTotales.max_value)
+	barEnemigosTotales.value = barEnemigosTotales.max_value
 
 func set_ronda(n:int):
 	labelRondas.text = str(n)
+
+func danio():
+	$AnimationPlayer.play("Danio")

@@ -24,9 +24,9 @@ func conectar_seniales() -> void:
 
 func on_descontar_enemigo() -> void:
 	DatosJuego.cantidad_enemigos -= 1
+	hud.descontar_enemigos()
 	if DatosJuego.cantidad_enemigos == 0:
 		Eventos.emit_signal("oleada_terminada")
-	hud.descontar_enemigos()
 
 func _on_disparo(proyectil:ProyectilPlayer) -> void:
 	add_child(proyectil)

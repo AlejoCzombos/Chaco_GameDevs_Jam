@@ -13,8 +13,10 @@ script = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 619, 342 )
+vida = 100.0
 
 [node name="Spawn" parent="." instance=ExtResource( 4 )]
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
-visible = false
+
+[editable path="HUD"]

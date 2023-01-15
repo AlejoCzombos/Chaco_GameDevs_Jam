@@ -5,7 +5,7 @@
 [ext_resource path="res://Escenas/Enemigos/spawner_mark_2.png" type="Texture" id=3]
 [ext_resource path="res://Escenas/sfx/Danio.wav" type="AudioStream" id=4]
 [ext_resource path="res://Escenas/sfx/Enemigos.wav" type="AudioStream" id=5]
-[ext_resource path="res://Escenas/sfx/Muerte3.wav" type="AudioStream" id=6]
+[ext_resource path="res://Escenas/sfx/Muerte2.wav" type="AudioStream" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 35.0143
@@ -194,8 +194,8 @@ bus = "SFX"
 
 [node name="Muerte" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-volume_db = -20.85
-pitch_scale = 0.65
+volume_db = -23.194
+pitch_scale = 0.77
 bus = "SFX"
 
 [node name="SpawnSFX" type="AudioStreamPlayer2D" parent="."]

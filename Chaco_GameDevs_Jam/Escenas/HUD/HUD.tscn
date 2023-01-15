@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Escenas/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Escenas/Menus/Monsters Attack! 1937.TTF" type="DynamicFontData" id=2]
@@ -41,19 +41,86 @@ border_width_bottom = 15
 border_color = Color( 0.8, 0.8, 0.8, 0 )
 anti_aliasing = false
 
+[sub_resource type="Animation" id=5]
+resource_name = "Danio"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 9.84916, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.721569, 0.00392157, 0.00392157, 0.0196078 ), Color( 0.721569, 0.00392157, 0.00392157, 0.470588 ), Color( 0.721569, 0.00392157, 0.00392157, 0.0196078 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.721569, 0.00392157, 0.00392157, 0.239216 ) ]
+}
+
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
 
 [node name="Rondas" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -37.0
-margin_top = 28.0
-margin_right = 38.0
-margin_bottom = 277.0
+margin_left = -35.0
+margin_top = 39.0
+margin_right = 35.0
+margin_bottom = 162.0
 custom_fonts/font = SubResource( 4 )
-text = "1
-"
+text = "1"
 align = 1
 valign = 1
 
@@ -184,7 +251,7 @@ size_flags_vertical = 3
 custom_styles/fg = SubResource( 3 )
 custom_styles/bg = SubResource( 1 )
 max_value = 3.0
-step = 1.0
+step = 0.0
 value = 3.0
 percent_visible = false
 
@@ -203,3 +270,13 @@ align = 1
 
 [node name="MenuPausa" parent="." instance=ExtResource( 8 )]
 visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Danio = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.721569, 0.00392157, 0.00392157, 0.239216 )

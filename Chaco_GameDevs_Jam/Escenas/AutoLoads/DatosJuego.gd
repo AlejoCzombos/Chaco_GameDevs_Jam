@@ -1,6 +1,8 @@
 extends Node
 
 var player_actual = null
+var camara_actual = null
+var hud_actual = null
 var cantidad_enemigos:int = 0
 var oleada_actual:int = 1
 

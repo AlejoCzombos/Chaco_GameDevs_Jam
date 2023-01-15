@@ -5,7 +5,11 @@ enum ESTADO {SPAWN, VIVO, INVENCIBLE, MUERTO}
 
 export var velocidad:float = 400.0
 export var vida:float = 10.0
+export var cadencia_disparo:float = 0.6
+export var velocidad_proyectil:int = 1000
+export var danio_proyectil:float = 2
 
+onready var particulas_danio:Particles2D = $Danio
 onready var sprite:AnimatedSprite = $AnimatedSprite
 onready var animaciones:AnimationPlayer = $AnimationPlayer
 onready var cetro = $RotacionCetro/Cetro
@@ -18,6 +22,7 @@ var estadoActual:int = ESTADO.VIVO
 func _ready() -> void:
 	DatosJuego.player_actual = self
 	controladorEstado(estadoActual)
+	configurar_cetro()
 
 func _exit_tree() -> void:
 	DatosJuego.player_actual = null
@@ -29,6 +34,11 @@ func evolucionar() -> void:
 		$RotacionCetro/Cetro/Sprite.play(nivel)
 		if nivel_evolucion == 3 || nivel_evolucion == 5:
 			Eventos.emit_signal("cambio_nivel_proyectil")
+
+func configurar_cetro() -> void:
+	cetro.cadencia_disparo = 0.7
+	cetro.velocidad_proyectil = 800
+	cetro.danio_proyectil = 2
 
 func _process(_delta) -> void:
 	#MOVIMIENTO----------------------
@@ -103,11 +113,15 @@ func controladorEstado(nuevoEstado: int) -> void:
 	estadoActual = nuevoEstado
 
 func recibir_danio(danio:float) -> void:
+	DatosJuego.camara_actual.movimientoCamara(4,0.3)
+	Eventos.emit_signal("danio_jugador")
 	if danio > vida:
 		#Borrar test
 		get_tree().change_scene("res://Escenas/Menus/MenuGameOver/MenuGameOver.tscn")
 	if vida > 0:
 		vida -= danio
+		animaciones.play("Danio")
+		Eventos.emit_signal("camera_shake_requested")
 		Eventos.emit_signal("cambio_vida", vida)
 		#Borrar test
 		print(vida)
