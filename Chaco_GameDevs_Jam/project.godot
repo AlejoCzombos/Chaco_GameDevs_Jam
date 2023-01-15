@@ -29,7 +29,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Escenas/Enemigos/EnemigoCactus.gd"
 }, {
-"base": "CanvasLayer",
+"base": "Control",
 "class": "HUD",
 "language": "GDScript",
 "path": "res://Escenas/HUD/HUD.gd"
