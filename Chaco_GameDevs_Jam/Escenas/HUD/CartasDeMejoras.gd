@@ -6,6 +6,11 @@ onready var cardDesc1 = $HBoxContainer/NinePatchRect/VBoxContainer/Label
 onready var cardDesc2 = $HBoxContainer/NinePatchRect2/VBoxContainer/Label
 
 
+onready var raiz = $'.'
+onready var desaparecer = $AnimationPlayer
+var sacadas = 0
+const mazoDeMejoras:Array = [0,1,2,3]
+
 const mejoraImg:Array = [
 	preload("res://Escenas/Menus/Assets_Stats/fireRatio_icon.png"), 		# Ratio de fuego
 	preload("res://Escenas/Menus/Assets_Stats/poder_icon.png"),			# Daño
@@ -29,7 +34,9 @@ const cartas = [
 
 ########### Prueba #############
 func _ready():
-	set_cards(0,1)
+	randomize()
+	mazoDeMejoras.shuffle()
+	repartirCartas()
 	# 0 = Tario de fuego
 	# 1 = Daño
 	# 2 = Vida
@@ -59,3 +66,15 @@ func set_cards(tipoCarta1, tipoCarta2):
 	print(descripcion)
 	cardImg2.set_texture(imagen)
 	cardDesc2.set_text(descripcion)
+
+func repartirCartas():
+	if mazoDeMejoras.size() != sacadas + 1:
+		set_cards(mazoDeMejoras[sacadas], mazoDeMejoras[sacadas+1])
+		sacadas += 2
+	else: 
+		sacadas = 0
+		set_cards(mazoDeMejoras[sacadas], mazoDeMejoras[sacadas+1])
+	if not raiz.visible:
+		raiz.visible = not raiz.visible
+		
+	desaparecer.play("Animación_desaparecer")

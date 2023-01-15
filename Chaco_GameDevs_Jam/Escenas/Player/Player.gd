@@ -15,6 +15,7 @@ onready var rotacionCetro:CollisionShape2D = $RotacionCetro
 var nivel_evolucion:int = 1
 var estadoActual:int = ESTADO.VIVO
 
+
 func _ready() -> void:
 	DatosJuego.player_actual = self
 	controladorEstado(estadoActual)
