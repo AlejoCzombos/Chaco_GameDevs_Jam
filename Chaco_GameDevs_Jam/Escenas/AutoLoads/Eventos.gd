@@ -20,8 +20,11 @@ signal cambio_nivel_proyectil()
 # warning-ignore:unused_signal
 signal cambio_vida(vida)
 
+<<<<<<< HEAD
 signal danio_jugador()
 
 signal camera_shake_requested()
 
 signal mejoraSeleccionada(mejora)
+=======
+>>>>>>> fff1976ddd95566a3a3b5b283209256a38b6b8fc

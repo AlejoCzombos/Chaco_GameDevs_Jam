@@ -19,4 +19,18 @@ vida = 100.0
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
 
+<<<<<<< HEAD
 [editable path="HUD"]
+=======
+[node name="Mejora" parent="." instance=ExtResource( 6 )]
+follow_viewport_enable = false
+
+[node name="Button" type="Button" parent="."]
+margin_left = 1083.0
+margin_top = 529.0
+margin_right = 1095.0
+margin_bottom = 549.0
+rect_min_size = Vector2( 80, 80 )
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+>>>>>>> fff1976ddd95566a3a3b5b283209256a38b6b8fc

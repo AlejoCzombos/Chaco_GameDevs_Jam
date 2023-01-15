@@ -113,11 +113,14 @@ func controladorEstado(nuevoEstado: int) -> void:
 	estadoActual = nuevoEstado
 
 func recibir_danio(danio:float) -> void:
+<<<<<<< HEAD
 	DatosJuego.camara_actual.movimientoCamara(4,0.3)
 	Eventos.emit_signal("danio_jugador")
 	if danio > vida:
 		#Borrar test
 		get_tree().change_scene("res://Escenas/Menus/MenuGameOver/MenuGameOver.tscn")
+=======
+>>>>>>> fff1976ddd95566a3a3b5b283209256a38b6b8fc
 	if vida > 0:
 		vida -= danio
 		animaciones.play("Danio")
@@ -125,3 +128,7 @@ func recibir_danio(danio:float) -> void:
 		Eventos.emit_signal("cambio_vida", vida)
 		#Borrar test
 		print(vida)
+		
+	if danio > vida:
+		#Borrar test
+		get_tree().change_scene("res://Escenas/Menus/MenuGameOver/MenuGameOver.tscn")

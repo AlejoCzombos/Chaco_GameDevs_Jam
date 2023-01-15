@@ -37,7 +37,7 @@ func on_comenzar_oleada(numero_oleada:int) -> void:
 
 func set_vida_maxima(vidaMaxima):
 	vidaMax.text = str(vidaMaxima)
-	barVidaMax.max_value = vidaMaxima 
+	barVidaMax.set_max(vidaMaxima) 
 
 func set_vida_actual(vidaAct):
 	vidaActual.text = str(vidaAct)
@@ -49,13 +49,21 @@ func descontar_enemigos():
 	barEnemigosRestantes.value = barEnemigosRestantes.value - 1
 
 func set_enemigos_restantes(enemigos):
-	enemigosRestantes.text = str(enemigos)
-	barEnemigosRestantes.value = enemigos
+	enemigosRestantes.set_text(str(enemigos))
+	barEnemigosRestantes.set_value(enemigos)
 
 func set_enemigos_totales(enemigos:int):
+<<<<<<< HEAD
 	barEnemigosTotales.max_value = enemigos
 	enemigosRestantes.text = str(barEnemigosTotales.max_value)
 	barEnemigosTotales.value = barEnemigosTotales.max_value
+=======
+	print('Se establecieron los nuevos totales')
+	barEnemigosTotales.set_value(enemigos)
+	barEnemigosTotales.set_max(enemigos)
+	enemigosRestantes.set_text(str(enemigos))
+		
+>>>>>>> fff1976ddd95566a3a3b5b283209256a38b6b8fc
 
 func set_ronda(n:int):
 	labelRondas.text = str(n)
