@@ -144,7 +144,8 @@ func recibir_danio(danio:float) -> void:
 	DatosJuego.camara_actual.movimientoCamara(4,0.3)
 	Eventos.emit_signal("danio_jugador")
 	if danio > vida:
-		Eventos.emit_signal("game_over")
+		#Borrar test
+		get_tree().change_scene("res://Escenas/Menus/MenuGameOver/MenuGameOver.tscn")
 	if vida > 0:
 		vida -= danio
 		animaciones.play("Danio")

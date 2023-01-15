@@ -27,5 +27,3 @@ signal danio_jugador()
 signal camera_shake_requested()
 
 signal mejoraSeleccionada(mejora)
-
-signal game_over()
