@@ -8,6 +8,7 @@ onready var tiempoStun:Timer = $TiempoStun
 onready var colisionador:CollisionShape2D = $CollisionShape2D
 onready var colisionadorArea:CollisionShape2D = $Hitbox/CollisionShape2D
 onready var hitSFX:AudioStreamPlayer = $Hit
+onready var mueteSFX:AudioStreamPlayer = $Muerte
 
 export var vida:float = 5.0
 export var danio:float = 2.0
@@ -49,16 +50,17 @@ func controladorEstado(nuevoEstado: int) -> void:
 
 func recibir_danio(danioo:float) -> void:
 	if estadoActual == ESTADO.VIVO:
-		hitSFX.play()
 		stuneado = true
 		movimiento = -movimiento * 4
 		tiempoStun.start()
 		modulate = Color.red
 		if danioo >= vida:
 			disparar()
-			yield(get_tree().create_timer(0.06), "timeout")
+			mueteSFX.play()
+			yield(get_tree().create_timer(0.1), "timeout")
 			controladorEstado(ESTADO.MUERTO)
 		if vida > 0:
+			hitSFX.play()
 			vida -= danioo
 
 func disparar() -> void:

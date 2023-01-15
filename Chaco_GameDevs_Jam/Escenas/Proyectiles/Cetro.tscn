@@ -1,9 +1,41 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Escenas/Proyectiles/Cetro.gd" type="Script" id=1]
-[ext_resource path="res://Recursos/Tiles/tile_0129.png" type="Texture" id=2]
+[ext_resource path="res://Escenas/Proyectiles/Baculos/baculo_3.png" type="Texture" id=2]
 [ext_resource path="res://Escenas/Proyectiles/ProyectilPlayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Escenas/sfx/Disparo.wav" type="AudioStream" id=4]
+[ext_resource path="res://Escenas/Proyectiles/Baculos/baculo_4.png" type="Texture" id=5]
+[ext_resource path="res://Escenas/Proyectiles/Baculos/baculo_2.png" type="Texture" id=6]
+[ext_resource path="res://Escenas/Proyectiles/Baculos/baculo_1.png" type="Texture" id=7]
+[ext_resource path="res://Escenas/Proyectiles/Baculos/baculo_0.png" type="Texture" id=8]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "Nivel1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Nivel2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Nivel3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Nivel4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Nivel5",
+"speed": 5.0
+} ]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Disparar"
@@ -98,9 +130,10 @@ velocidad_proyectil = 1000
 
 [node name="TimerEnfriamiento" type="Timer" parent="."]
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 5, 5 )
-texture = ExtResource( 2 )
+frames = SubResource( 4 )
+animation = "Nivel1"
 
 [node name="PosicionDisparo" type="Position2D" parent="."]
 position = Vector2( -5, 0 )

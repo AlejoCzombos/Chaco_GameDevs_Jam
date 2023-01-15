@@ -26,6 +26,7 @@ func evolucionar() -> void:
 	if nivel_evolucion < 6:
 		var nivel = "Nivel" + str(nivel_evolucion)
 		sprite.play(nivel)
+		$RotacionCetro/Cetro/Sprite.play(nivel)
 		if nivel_evolucion == 3 || nivel_evolucion == 5:
 			Eventos.emit_signal("cambio_nivel_proyectil")
 
