@@ -31,6 +31,8 @@ func _ready():
 	Eventos.connect("oleada_terminada", self, "on_oleada_terminada")
 # warning-ignore:return_value_discarded
 	Eventos.connect("mejoraSeleccionada", self, "on_mejora_seleccionada")
+# warning-ignore:return_value_discarded
+	Eventos.connect("subidaVida", self, "on_subida_vida")
 
 func on_mejora_seleccionada(_mejora:int) -> void:
 	#TODO: animacion esconder
@@ -38,6 +40,10 @@ func on_mejora_seleccionada(_mejora:int) -> void:
 	seleccionar_mejora.visible = false
 	Eventos.emit_signal("comenzar_oleada", DatosJuego.oleada_actual)
 	pass
+
+func on_subida_vida(vidaMax) -> void:
+	set_vida_maxima(vidaMax)
+	set_vida_actual(vidaMax)
 
 func on_oleada_terminada() -> void:
 	seleccionar_mejora.definir_cartas()

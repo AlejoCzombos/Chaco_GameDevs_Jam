@@ -20,6 +20,8 @@ signal cambio_nivel_proyectil()
 # warning-ignore:unused_signal
 signal cambio_vida(vida)
 
+signal subidaVida(vida)
+
 signal danio_jugador()
 
 signal camera_shake_requested()

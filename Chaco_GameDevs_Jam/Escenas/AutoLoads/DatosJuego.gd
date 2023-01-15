@@ -4,7 +4,7 @@ var player_actual = null
 var camara_actual = null
 var hud_actual = null
 var cantidad_enemigos:int = 0
-var oleada_actual:int = 7
+var oleada_actual:int = 1
 
 func _ready() -> void:
 	Eventos.connect("oleada_terminada", self, "on_oleada_terminada")

@@ -13,8 +13,8 @@ dest_files=[ "res://.import/Evolucionar.wav-63f7c3c3406a5f4abc3b9bfeb2de29da.sam
 
 force/8_bit=false
 force/mono=false
-force/max_rate=false
-force/max_rate_hz=44100
+force/max_rate=true
+force/max_rate_hz=20000.0
 edit/trim=false
 edit/normalize=false
 edit/loop_mode=0

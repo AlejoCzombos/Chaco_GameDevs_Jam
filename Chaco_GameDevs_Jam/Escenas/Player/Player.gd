@@ -9,13 +9,13 @@ export var cadencia_disparo:float = 1
 export var velocidad_proyectil:int = 1000
 export var danio_proyectil:float = 2
 
-onready var particulas_danio:Particles2D = $Danio
 onready var sprite:AnimatedSprite = $AnimatedSprite
 onready var animaciones:AnimationPlayer = $AnimationPlayer
 onready var cetro = $RotacionCetro/Cetro
 onready var colisionador:CollisionShape2D = $CollisionShape2D
 onready var rotacionCetro:CollisionShape2D = $RotacionCetro
 
+var vidaMax:float
 var nivel_evolucion:int = 1
 var estadoActual:int = ESTADO.VIVO
 
@@ -26,11 +26,15 @@ func _ready() -> void:
 	Eventos.connect("mejoraSeleccionada", self, "on_mejoraSeleccionada")
 	$RotacionCetro/Cetro/TimerEnfriamiento.wait_time = cadencia_disparo
 	$RotacionCetro/Cetro.velocidad_proyectil = velocidad_proyectil
+	vidaMax = vida
 
 func _exit_tree() -> void:
 	DatosJuego.player_actual = null
 
 func on_mejoraSeleccionada(mejora:int) -> void:
+	nivel_evolucion += 1
+	if nivel_evolucion == 3 && nivel_evolucion == 6 && nivel_evolucion == 9 && nivel_evolucion == 12 && nivel_evolucion == 15:
+		evolucionar()
 	# 0 = Daño
 	# 1 = Tario de fuego
 	# 2 = Vida
@@ -39,27 +43,26 @@ func on_mejoraSeleccionada(mejora:int) -> void:
 		0: 
 			danio_proyectil = danio_proyectil * 1.5
 			cetro.danio_proyectil = danio_proyectil
-			print("danio mejorado" + str(danio_proyectil))
 			pass
 		1:
 			cadencia_disparo = cadencia_disparo 
 			$RotacionCetro/Cetro/TimerEnfriamiento.wait_time = (cadencia_disparo - 0.2)
-			print("cadencia mejorada" + str(cadencia_disparo))
 			pass
 		2:
-			vida = vida * 1.4
-			print("vida mejorada" + str(vida))
+			vidaMax = vidaMax * 1.4
+			vida = vidaMax
+			Eventos.emit_signal("subidaVida", vida)
 			pass
 		3:
-			velocidad = velocidad + 50
-			print("velocidad mejorada" + str(velocidad))
+			velocidad = velocidad + 70
 			pass
 		_:
 			printerr("Error mejora")
 
 func evolucionar() -> void:
 	if nivel_evolucion < 6:
-		var nivel = "Nivel" + str(nivel_evolucion)
+		var nivel = "Nivel" + str(nivel_evolucion-1)
+		print(nivel)
 		sprite.play(nivel)
 		$RotacionCetro/Cetro/Sprite.play(nivel)
 		if nivel_evolucion == 3 || nivel_evolucion == 5:
@@ -87,11 +90,6 @@ func _process(_delta) -> void:
 		cetro.set_esta_disparando(true)
 	elif Input.is_action_just_released("Disparar"):
 		cetro.set_esta_disparando(false)
-	
-	if Input.is_action_just_pressed("Pausa"):
-		#Borrar test
-		nivel_evolucion += 1
-		evolucionar()
 	
 	if movimiento.length() > 0:
 		movimiento = movimiento.normalized() * velocidad

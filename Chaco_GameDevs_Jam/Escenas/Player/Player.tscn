@@ -9,7 +9,7 @@
 [ext_resource path="res://Escenas/Player/magoLvl5.png" type="Texture" id=7]
 [ext_resource path="res://Escenas/sfx/Correr.wav" type="AudioStream" id=8]
 [ext_resource path="res://Escenas/Player/CameraShake.gd" type="Script" id=9]
-[ext_resource path="res://Escenas/Sistema de Particulas/Danio.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Escenas/sfx/Pasar_de_Ronda.wav" type="AudioStream" id=10]
 [ext_resource path="res://Escenas/Player/DanioPlayer.wav" type="AudioStream" id=11]
 [ext_resource path="res://Escenas/Player/MuertePlayer.wav" type="AudioStream" id=12]
 
@@ -99,7 +99,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=7]
 resource_name = "Danio"
-length = 0.6
+length = 0.16
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:modulate")
@@ -114,36 +114,24 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.113725, 0.113725, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Danio:emitting")
+tracks/1/path = NodePath("RotacionCetro/Cetro:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("RotacionCetro/Cetro:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0, 0.05, 0.1 ),
 "transitions": PoolRealArray( 7, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.113725, 0.113725, 1 ), Color( 1, 1, 1, 1 ) ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("DanioSFX:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/path = NodePath("DanioSFX:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0, 0.15 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
@@ -181,7 +169,7 @@ tracks/1/keys = {
 "values": [ 0.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Danio:emitting")
+tracks/2/path = NodePath("RotacionCetro/Cetro:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -190,27 +178,15 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("RotacionCetro/Cetro:modulate")
+tracks/3/path = NodePath("DanioSFX:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("DanioSFX:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -270,7 +246,9 @@ stream = ExtResource( 12 )
 volume_db = -14.215
 pitch_scale = 0.94
 
-[node name="Danio" parent="." instance=ExtResource( 10 )]
-scale = Vector2( 0.7, 0.7 )
+[node name="PasarRondaSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -12.718
+pitch_scale = 1.86
 
 [connection signal="timeout" from="Camera2D/TimerCameraShake" to="Camera2D" method="_on_TimerCameraShake_timeout"]

@@ -9,6 +9,7 @@ onready var colisionador:CollisionShape2D = $CollisionShape2D
 onready var colisionadorArea:CollisionShape2D = $Hitbox/CollisionShape2D
 onready var hitSFX:AudioStreamPlayer = $Hit
 onready var mueteSFX:AudioStreamPlayer = $Muerte
+onready var damage_spawning_point = $PosicionHIt
 
 export var vida:float = 5.0
 export var danio:float = 2.0
@@ -54,6 +55,10 @@ func recibir_danio(danioo:float) -> void:
 		movimiento = -movimiento * 4
 		tiempoStun.start()
 		modulate = Color.red
+		var label := preload("res://Escenas/SistemaParticulas/damage_label/DamageLabel.tscn").instance()
+		label.global_position = damage_spawning_point.global_position
+		label.set_damage(danioo)
+		add_child(label)
 		if danioo >= vida:
 			disparar()
 			mueteSFX.play()

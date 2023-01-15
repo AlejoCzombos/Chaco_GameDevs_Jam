@@ -47,13 +47,13 @@ var numero2:int
 func _process(delta):
 	if Input.is_action_just_pressed("Disparar"):
 		if carta1_seleccionada:
-			print("carta 1 seleccionada")
 			Eventos.emit_signal("mejoraSeleccionada", numero1)
 			carta1_seleccionada = false
+			carta1.modulate = Color.white
 		elif carta2_seleccionada:
-			print("carta 2 seleccionada")
 			Eventos.emit_signal("mejoraSeleccionada", numero2)
 			carta2_seleccionada = false
+			carta2.modulate = Color.white
 
 ########### Prueba #############
 func _ready():
