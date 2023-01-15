@@ -7,6 +7,14 @@ var nivel_actual: String = ""
 ## Atributos Export
 export(String, FILE, "*.tscn") var menu_inicio = ""
 
+## Atributos Onready
+onready var musica: AudioStreamPlayer = $MusicaGameOver
+
+## Metodos
+func _ready():
+	nivel_actual = DatosJuego.nivel_actual
+	musica.play()
+
 ## Señales Internas
 func _on_MenuPrincipal_pressed() -> void:
 # warning-ignore:return_value_discarded

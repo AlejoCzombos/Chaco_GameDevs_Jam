@@ -5,6 +5,13 @@ extends Control
 export(String, FILE, "*.tscn") var menu_principal = ""
 export(String, FILE, "*.tscn") var creditos = ""
 
+## Atributos Onready
+onready var musica: AudioStreamPlayer = $MusicaMenuVictoria
+
+## Metodos
+func _ready() -> void:
+	musica.play()
+
 ## Señales Internas
 func _on_Menu_Principal_pressed() -> void:
 # warning-ignore:return_value_discarded

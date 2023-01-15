@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Escenas/Menus/Toriko.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Escenas/Menus/Menu_Victoria/Menu_Victoria.gd" type="Script" id=2]
 [ext_resource path="res://Escenas/Menus/background_img_placeholder.jpeg" type="Texture" id=3]
 [ext_resource path="res://Escenas/Menus/ButonBase.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Escenas/sfx/Sonido_de_Victoria.wav" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=3]
 size = 80
@@ -30,6 +31,7 @@ menu_principal = "res://Escenas/Menus/MenuInicio.tscn"
 creditos = "res://Escenas/Menus/Creditos.tscn"
 
 [node name="Fondo" type="TextureRect" parent="."]
+modulate = Color( 0.482353, 0.482353, 0.482353, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 3 )
@@ -102,6 +104,10 @@ margin_right = 664.0
 margin_bottom = 427.0
 custom_fonts/font = SubResource( 8 )
 text = "Salir"
+
+[node name="MusicaMenuVictoria" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "Musica"
 
 [connection signal="pressed" from="VBoxContainer/Menu_Principal" to="." method="_on_Menu_Principal_pressed"]
 [connection signal="pressed" from="VBoxContainer/Creditos" to="." method="_on_Creditos_pressed"]
