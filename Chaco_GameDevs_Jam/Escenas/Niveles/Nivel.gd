@@ -3,6 +3,7 @@ extends Node2D
 
 onready var contenedor_enemigos:Node
 onready var hud:HUD = $HUD
+onready var mejora = $Mejora
 
 func _ready() -> void:
 	Eventos.emit_signal("comenzar_oleada", DatosJuego.oleada_actual)
@@ -20,6 +21,7 @@ func conectar_seniales() -> void:
 	Eventos.connect("disparo_enemigo", self, "_on_disparo_enemigo")
 # warning-ignore:return_value_discarded
 	Eventos.connect("descontar_enemigo", self, "on_descontar_enemigo")
+# Esta es para las cartitas
 
 
 func on_descontar_enemigo() -> void:
@@ -36,3 +38,7 @@ func _on_disparo_enemigo(proyectil:ProyectilEnemigo) -> void:
 
 func on_instanciar_enemigo(enemigo:EnemigoBase) -> void:
 	add_child(enemigo)
+
+##### boton de prueba
+func _on_Button_pressed():
+	mejora.repartirCartas()

@@ -32,11 +32,13 @@ const cartas = [
 ]
 
 
+
+
 ########### Prueba #############
 func _ready():
 	randomize()
 	mazoDeMejoras.shuffle()
-	repartirCartas()
+	
 	# 0 = Tario de fuego
 	# 1 = Daño
 	# 2 = Vida
@@ -68,6 +70,7 @@ func set_cards(tipoCarta1, tipoCarta2):
 	cardDesc2.set_text(descripcion)
 
 func repartirCartas():
+	
 	if mazoDeMejoras.size() != sacadas + 1:
 		set_cards(mazoDeMejoras[sacadas], mazoDeMejoras[sacadas+1])
 		sacadas += 2

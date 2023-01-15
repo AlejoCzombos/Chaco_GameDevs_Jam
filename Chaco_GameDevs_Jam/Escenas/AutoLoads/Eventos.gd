@@ -19,3 +19,6 @@ signal cambio_nivel_proyectil()
 
 # warning-ignore:unused_signal
 signal cambio_vida(vida)
+
+# Esta es para setear las cartas
+signal mezclar_cartas()

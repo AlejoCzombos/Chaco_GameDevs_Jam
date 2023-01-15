@@ -21,4 +21,13 @@ position = Vector2( 619, 342 )
 visible = false
 
 [node name="Mejora" parent="." instance=ExtResource( 6 )]
-visible = false
+follow_viewport_enable = false
+
+[node name="Button" type="Button" parent="."]
+margin_left = 1083.0
+margin_top = 529.0
+margin_right = 1095.0
+margin_bottom = 549.0
+rect_min_size = Vector2( 80, 80 )
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
