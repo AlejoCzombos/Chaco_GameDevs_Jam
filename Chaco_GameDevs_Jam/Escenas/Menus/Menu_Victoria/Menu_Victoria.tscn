@@ -107,6 +107,7 @@ text = "Salir"
 
 [node name="MusicaMenuVictoria" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+volume_db = -23.195
 bus = "Musica"
 
 [connection signal="pressed" from="VBoxContainer/Menu_Principal" to="." method="_on_Menu_Principal_pressed"]

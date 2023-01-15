@@ -38,10 +38,12 @@ func actualizarImgNivelMago():
 
 func _on_MenuPrincipal_pressed():
 	# warning-ignore:return_value_discarded
+	MusicaJuego.play_boton()
 	get_tree().change_scene(menu_princiipal)
 	get_tree().paused = false
 
 func _on_Continuar_pressed():
+	MusicaJuego.play_boton()
 	get_tree().paused = false
 	visible = false
 

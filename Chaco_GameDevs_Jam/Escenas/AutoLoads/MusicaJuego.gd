@@ -9,31 +9,26 @@ export(float, -50.0, -20.0, 5.0) var volumen_apagado = -40.0
 onready var musica_nivel:AudioStreamPlayer = $MusicaNivel
 onready var tween_musica_on:Tween = $TweenMusicaOn
 onready var tween_musica_off:Tween = $TweenMusicaOff
-onready var lista_musicas:Dictionary ={
-	"menu_principal": $MusicaMenuPrincipal
-} setget ,get_lista_musicas
+onready var musica_menu:AudioStreamPlayer = $MusicaMenuPrincipal
+onready var boton:AudioStreamPlayer = $Boton
 
 ## Atributos
 var vol_original_musica_off:float = 0.0
-
-## Setters y Getters
-func get_lista_musicas() -> Dictionary:
-	return lista_musicas
 
 ## Metodos Custom
 func set_streams(stream_nivel:AudioStream) -> void:
 	musica_nivel.stream = stream_nivel
 
-func play_musica(musica: AudioStreamPlayer) -> void:
+func play_musica_menu() -> void:
 	stop_todo()
-	musica.play()
+	musica_menu.play()
 
 func play_musica_nivel() -> void:
 	stop_todo()
 	musica_nivel.play()
 
 func play_boton() -> void:
-	$BotonMenu.play()
+	boton.play()
 
 func stop_todo() -> void:
 	for nodo in get_children():

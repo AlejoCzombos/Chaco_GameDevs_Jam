@@ -5,6 +5,9 @@ extends Control
 ## Atributos Export
 export(String, FILE, "*.tscn") var menu_inicial = ""
 
+func _ready():
+	MusicaJuego.play_musica_menu()
+
 ## Metodos
 func _get_configuration_warning() -> String:
 	if menu_inicial == "":
@@ -15,3 +18,8 @@ func _get_configuration_warning() -> String:
 func cargar_menu() -> void:
 # warning-ignore:return_value_discarded
 	get_tree().change_scene(menu_inicial)
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "presentacion":
+		cargar_menu()

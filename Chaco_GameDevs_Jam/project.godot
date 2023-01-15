@@ -94,6 +94,7 @@ config/icon="res://icon.png"
 
 DatosJuego="*res://Escenas/AutoLoads/DatosJuego.gd"
 Eventos="*res://Escenas/AutoLoads/Eventos.gd"
+MusicaJuego="*res://Escenas/AutoLoads/MusicaJuego.tscn"
 
 [display]
 

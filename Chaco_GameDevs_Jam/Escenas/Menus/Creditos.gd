@@ -19,6 +19,7 @@ func _ready():
 
 
 func _on_Button_pressed():
+	MusicaJuego.play_boton()
 	get_tree().change_scene(menuScene)
 
 
