@@ -66,6 +66,8 @@ radius = 54.0093
 
 [node name="EnemigoArana" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
+vida = 8.0
+velocidad = 250
 proyectil = ExtResource( 4 )
 velocidad_proyectil = 250
 danio_proyectil = 2.0

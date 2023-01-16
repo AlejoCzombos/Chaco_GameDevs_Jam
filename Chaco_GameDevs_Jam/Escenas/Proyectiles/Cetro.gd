@@ -25,6 +25,7 @@ func set_puede_disparar(disparando: bool) -> void:
 
 func _ready() -> void:
 	timer_enfriamiento.wait_time = cadencia_disparo
+# warning-ignore:return_value_discarded
 	Eventos.connect("cambio_nivel_proyectil", self, "on_cambio_nivel_proyectil")
 
 func _process(_delta: float) -> void:

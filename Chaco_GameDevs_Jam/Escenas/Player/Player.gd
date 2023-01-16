@@ -23,6 +23,7 @@ func _ready() -> void:
 	DatosJuego.player_actual = self
 	controladorEstado(estadoActual)
 	configurar_cetro()
+# warning-ignore:return_value_discarded
 	Eventos.connect("mejoraSeleccionada", self, "on_mejoraSeleccionada")
 	$RotacionCetro/Cetro/TimerEnfriamiento.wait_time = cadencia_disparo
 	$RotacionCetro/Cetro.velocidad_proyectil = velocidad_proyectil
@@ -33,7 +34,10 @@ func _exit_tree() -> void:
 
 func on_mejoraSeleccionada(mejora:int) -> void:
 	nivel_evolucion += 1
-	if nivel_evolucion == 3 && nivel_evolucion == 6 && nivel_evolucion == 9 && nivel_evolucion == 12 && nivel_evolucion == 15:
+	if nivel_evolucion == 3 || nivel_evolucion == 6 || nivel_evolucion == 9 || nivel_evolucion == 12:
+		cetro.danio_proyectil = (danio_proyectil + 1)
+		$RotacionCetro/Cetro/TimerEnfriamiento.wait_time = (cadencia_disparo - 0.2)
+		cetro.velocidad_proyectil = velocidad_proyectil + 200
 		evolucionar()
 	# 0 = Daño
 	# 1 = Tario de fuego
@@ -49,7 +53,7 @@ func on_mejoraSeleccionada(mejora:int) -> void:
 			$RotacionCetro/Cetro/TimerEnfriamiento.wait_time = (cadencia_disparo - 0.2)
 			pass
 		2:
-			vidaMax = vidaMax * 1.4
+			vidaMax = vidaMax + 5
 			vida = vidaMax
 			Eventos.emit_signal("subidaVida", vida)
 			pass
@@ -62,7 +66,6 @@ func on_mejoraSeleccionada(mejora:int) -> void:
 func evolucionar() -> void:
 	if nivel_evolucion < 6:
 		var nivel = "Nivel" + str(nivel_evolucion-1)
-		print(nivel)
 		sprite.play(nivel)
 		$RotacionCetro/Cetro/Sprite.play(nivel)
 		if nivel_evolucion == 3 || nivel_evolucion == 5:
@@ -120,6 +123,7 @@ func _process(_delta) -> void:
 	
 	#Movimiento Player
 	#position += movimiento * delta
+# warning-ignore:return_value_discarded
 	move_and_slide(movimiento)
 
 func controladorEstado(nuevoEstado: int) -> void:
@@ -144,12 +148,10 @@ func recibir_danio(danio:float) -> void:
 	DatosJuego.camara_actual.movimientoCamara(4,0.3)
 	Eventos.emit_signal("danio_jugador")
 	if danio > vida:
-		#Borrar test
-		get_tree().change_scene("res://Escenas/Menus/MenuGameOver/MenuGameOver.tscn")
+# warning-ignore:return_value_discarded
+		get_tree().change_scene("res://Escenas/Menus/Menu_Victoria/GameOver.tscn")
 	if vida > 0:
 		vida -= danio
 		animaciones.play("Danio")
 		Eventos.emit_signal("camera_shake_requested")
 		Eventos.emit_signal("cambio_vida", vida)
-		#Borrar test
-		print(vida)

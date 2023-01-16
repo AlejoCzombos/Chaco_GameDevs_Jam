@@ -87,7 +87,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Wizard Crawler"
-run/main_scene="res://Escenas/Niveles/Nivel.tscn"
+run/main_scene="res://Escenas/Menus/MenuPresentacion/MenuPresentacion.tscn"
 config/icon="res://icon.png"
 
 [autoload]

@@ -11,6 +11,7 @@ onready var tween_musica_on:Tween = $TweenMusicaOn
 onready var tween_musica_off:Tween = $TweenMusicaOff
 onready var musica_menu:AudioStreamPlayer = $MusicaMenuPrincipal
 onready var boton:AudioStreamPlayer = $Boton
+onready var nivel:AudioStreamPlayer = $PasarRondaSFX
 
 ## Atributos
 var vol_original_musica_off:float = 0.0
@@ -19,12 +20,16 @@ var vol_original_musica_off:float = 0.0
 func set_streams(stream_nivel:AudioStream) -> void:
 	musica_nivel.stream = stream_nivel
 
+func play_pasar_ronda() -> void:
+	nivel.play()
+
 func play_musica_menu() -> void:
-	stop_todo()
-	musica_menu.play()
+	fade_out(musica_nivel)
+	fade_in(musica_menu)
 
 func play_musica_nivel() -> void:
-	stop_todo()
+	fade_out(musica_menu)
+	fade_in(musica_nivel)
 	musica_nivel.play()
 
 func play_boton() -> void:
@@ -39,6 +44,7 @@ func fade_in(musica_fade_in: AudioStreamPlayer) -> void:
 	var volumen_original = musica_fade_in.volume_db
 	musica_fade_in.volume_db = volumen_apagado
 	musica_fade_in.play()
+# warning-ignore:return_value_discarded
 	tween_musica_on.interpolate_property(
 		musica_fade_in,
 		"volume_db",
@@ -48,10 +54,12 @@ func fade_in(musica_fade_in: AudioStreamPlayer) -> void:
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN_OUT
 	)
+# warning-ignore:return_value_discarded
 	tween_musica_on.start()
 
 func fade_out(musica_fade_out: AudioStreamPlayer) -> void:
 	vol_original_musica_off = musica_fade_out.volume_db
+# warning-ignore:return_value_discarded
 	tween_musica_off.interpolate_property(
 		musica_fade_out,
 		"volume_db",
@@ -61,6 +69,7 @@ func fade_out(musica_fade_out: AudioStreamPlayer) -> void:
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN_OUT
 	)
+# warning-ignore:return_value_discarded
 	tween_musica_off.start()
 
 ## Señales Internas

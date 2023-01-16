@@ -7,6 +7,7 @@ var danio:float = 2.0
 func _physics_process(delta: float) -> void :
 	position += velocidad * delta
 
+# warning-ignore:unused_argument
 func crear(pos: Vector2, dir: float, vel: float, nuevo_danio:float, nivel:int) -> void:
 	position = pos
 	rotation = dir

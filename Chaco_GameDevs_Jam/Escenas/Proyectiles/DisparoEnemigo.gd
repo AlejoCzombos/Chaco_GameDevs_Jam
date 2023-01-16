@@ -15,6 +15,7 @@ func _ready() -> void:
 	timer_enfriamiento.wait_time = cadencia_disparo
 	player_objetivo = DatosJuego.player_actual
 
+# warning-ignore:unused_argument
 func _process(delta):
 	if esta_disparando && esta_enfriado:
 		disparar()

@@ -20,4 +20,14 @@ cadencia_disparo = 1.3
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
 
+[node name="Label2" parent="HUD" index="7"]
+margin_left = -442.5
+margin_top = -831.0
+margin_right = 442.5
+margin_bottom = -708.996
+
+[node name="Label" parent="HUD" index="8"]
+margin_left = -339.0
+margin_right = 339.0
+
 [editable path="HUD"]

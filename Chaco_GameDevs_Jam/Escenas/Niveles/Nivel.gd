@@ -5,6 +5,7 @@ onready var contenedor_enemigos:Node
 onready var hud:HUD = $HUD
 
 func _ready() -> void:
+	MusicaJuego.play_musica_nivel()
 	Eventos.emit_signal("comenzar_oleada", DatosJuego.oleada_actual)
 	conectar_seniales()
 	contenedor_enemigos = Node.new()
@@ -25,6 +26,8 @@ func on_descontar_enemigo() -> void:
 	DatosJuego.cantidad_enemigos -= 1
 	hud.descontar_enemigos()
 	if DatosJuego.cantidad_enemigos == 0:
+		yield(get_tree().create_timer(0.5), "timeout")
+		MusicaJuego.play_pasar_ronda()
 		Eventos.emit_signal("oleada_terminada")
 
 func _on_disparo(proyectil:ProyectilPlayer) -> void:

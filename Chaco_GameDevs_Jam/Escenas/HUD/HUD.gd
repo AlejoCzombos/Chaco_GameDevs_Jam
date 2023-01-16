@@ -39,8 +39,10 @@ func on_mejora_seleccionada(_mejora:int) -> void:
 	get_tree().paused = false
 	seleccionar_mejora.visible = false
 	Eventos.emit_signal("comenzar_oleada", DatosJuego.oleada_actual)
+	$AnimationPlayer.play("RESET")
 	pass
 
+# warning-ignore:shadowed_variable
 func on_subida_vida(vidaMax) -> void:
 	set_vida_maxima(vidaMax)
 	set_vida_actual(vidaMax)
@@ -48,6 +50,12 @@ func on_subida_vida(vidaMax) -> void:
 func on_oleada_terminada() -> void:
 	seleccionar_mejora.definir_cartas()
 	seleccionar_mejora.visible = true
+	if DatosJuego.oleada_actual == 4 || DatosJuego.oleada_actual == 7 || DatosJuego.oleada_actual == 10 || DatosJuego.oleada_actual == 13:
+		$Label.visible = true
+		$Label2.visible = true
+	else:
+		$Label.visible = false
+		$Label2.visible = false
 	get_tree().paused = true
 
 func on_cambio_vida(vida:int) -> void:
@@ -86,3 +94,8 @@ func set_ronda(n:int):
 
 func danio():
 	$AnimationPlayer.play("Danio")
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "Evolucion":
+		$AnimationPlayer.play("Evolucion1")

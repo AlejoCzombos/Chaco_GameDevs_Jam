@@ -44,6 +44,7 @@ var mejoras_disparo:int = 5
 var numero1:int
 var numero2:int
 
+# warning-ignore:unused_argument
 func _process(delta):
 	if Input.is_action_just_pressed("Disparar"):
 		if carta1_seleccionada:

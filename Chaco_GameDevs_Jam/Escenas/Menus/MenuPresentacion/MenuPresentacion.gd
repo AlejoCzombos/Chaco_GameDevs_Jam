@@ -5,7 +5,7 @@ extends Control
 ## Atributos Export
 export(String, FILE, "*.tscn") var menu_inicial = ""
 
-func _ready():
+func reproducirMusica():
 	MusicaJuego.play_musica_menu()
 
 ## Metodos

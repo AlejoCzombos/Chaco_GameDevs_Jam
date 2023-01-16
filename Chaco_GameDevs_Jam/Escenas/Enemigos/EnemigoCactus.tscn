@@ -12,10 +12,8 @@ radius = 583.008
 
 [node name="EnemigoCactus" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-velocidad = 50
-
-[node name="Hitbox" parent="." index="7"]
-visible = false
+vida = 7.0
+velocidad = 150
 
 [node name="AreaPersecusion" type="Area2D" parent="." index="8"]
 visible = false
@@ -32,6 +30,9 @@ collision_layer = 0
 shape = SubResource( 2 )
 
 [node name="DisparoEnemigo" parent="." index="10" instance=ExtResource( 3 )]
+
+[node name="Hitbox" parent="." index="11"]
+visible = false
 
 [connection signal="body_entered" from="AreaPersecusion" to="." method="_on_AreaPersecusion_body_entered"]
 [connection signal="body_exited" from="AreaSalirPersecusion" to="." method="_on_AreaSalirPersecusion_body_exited"]

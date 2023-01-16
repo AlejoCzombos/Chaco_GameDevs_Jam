@@ -28,6 +28,7 @@ func _process(delta) -> void:
 		movimiento = global_position.direction_to(player_objetivo.global_position)
 	elif stuneado:
 		movimiento = lerp(movimiento, Vector2(0,0), 0.3)
+# warning-ignore:return_value_discarded
 	move_and_slide(movimiento * (velocidad * 100) * delta)
 
 func controladorEstado(nuevoEstado: int) -> void:

@@ -11,6 +11,7 @@ func _ready():
 func _exit_tree():
 	DatosJuego.camara_actual = null
 
+# warning-ignore:unused_argument
 func _process(delta):
 	zoom = lerp(zoom, Vector2(1,1), 0.3)
 	

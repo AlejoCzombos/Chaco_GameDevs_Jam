@@ -1,28 +1,26 @@
 #MenuGameOver.gd
 extends Control
 
-## Atributos
-var nivel_actual: String = ""
-
 ## Atributos Export
 export(String, FILE, "*.tscn") var menu_inicio = ""
+
+export(String, FILE, "*.tscn") var nivel_actual = ""
 
 ## Atributos Onready
 onready var musica: AudioStreamPlayer = $MusicaGameOver
 
 ## Metodos
 func _ready():
-	nivel_actual = DatosJuego.nivel_actual
 	musica.play()
 
-## Señales Internas
-func _on_MenuPrincipal_pressed() -> void:
+func _on_Salir_pressed() -> void:
 # warning-ignore:return_value_discarded
-	get_tree().change_scene(menu_inicio)
+	get_tree().quit()
 
-func _on_Reintentar_pressed() -> void:
+func _on_Menu_Principal_pressed():
 # warning-ignore:return_value_discarded
 	get_tree().change_scene(nivel_actual)
 
-func _on_Salir_pressed() -> void:
-	get_tree().quit()
+func _on_Creditos_pressed():
+# warning-ignore:return_value_discarded
+	get_tree().change_scene(menu_inicio)

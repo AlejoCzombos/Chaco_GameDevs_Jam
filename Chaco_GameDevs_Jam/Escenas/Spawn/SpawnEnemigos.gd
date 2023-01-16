@@ -4,17 +4,17 @@ extends Node2D
 onready var oleada:Oleada = $Oleada
 
 func _ready() -> void:
+# warning-ignore:return_value_discarded
 	Eventos.connect("comenzar_oleada", self, "on_comenzar_oleada")
 
 func on_comenzar_oleada(numero_oleada:int) -> void:
-	print("Oleada comenzada")
 	oleadas(numero_oleada)
 
 func oleadas(num_oleada:int) -> void:
 	match num_oleada:
 		1:
-			oleada.configurarOleada(Vector2(5,6), -1, 0,Vector2(5,6), 0, 1, 2)
-			Eventos.emit_signal("enemigos_totales", 1)
+			oleada.configurarOleada(Vector2(5,6), -1, 0,Vector2(5,6), 0, 3, 2)
+			Eventos.emit_signal("enemigos_totales", 3)
 			pass
 		2:
 			oleada.configurarOleada(Vector2(5,6), -1, 0,Vector2(5,6), 0, 5, 2)
@@ -29,11 +29,11 @@ func oleadas(num_oleada:int) -> void:
 			Eventos.emit_signal("enemigos_totales", 7)
 			pass
 		5:
-			oleada.configurarOleada(Vector2(4.5,5.5), 0, 8,Vector2(4.5,5.5), -1, 0, 2)
+			oleada.configurarOleada(Vector2(2,3), 0, 8,Vector2(4.5,5.5), -1, 0, 2)
 			Eventos.emit_signal("enemigos_totales", 8)
 			pass
 		6:
-			oleada.configurarOleada(Vector2(4,5), 0, 8,Vector2(4,5), 2, 3, 2)
+			oleada.configurarOleada(Vector2(2,3), 0, 8,Vector2(4,5), 2, 3, 2)
 			Eventos.emit_signal("enemigos_totales", 11)
 			pass
 		7:
@@ -69,14 +69,7 @@ func oleadas(num_oleada:int) -> void:
 			Eventos.emit_signal("enemigos_totales", 19)
 			pass
 		15:
-			oleada.configurarOleada(Vector2(3,4), 4, 9,Vector2(3,4), 3, 10, 2)
-			Eventos.emit_signal("enemigos_totales", 19)
-			pass
-		16:
-			oleada.configurarOleada(Vector2(3,4), 4, 12,Vector2(3,4), 3, 12, 2)
-			Eventos.emit_signal("enemigos_totales", 24)
-			pass
-		17:
+# warning-ignore:return_value_discarded
 			get_tree().change_scene("res://Escenas/Menus/Menu_Victoria/Menu_Victoria.tscn")
 		_:
 			printerr("ERROR OLEADA")
